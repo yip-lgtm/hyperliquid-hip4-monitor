@@ -1,0 +1,171 @@
+{
+  "last_updated": "2026-06-15T10:02:34.539499+00:00",
+  "source": "polymarket_esports_only",
+  "signals": [
+    {
+      "market": "POLY_ufc-jus3-ili1-2026-06-14",
+      "direction": "BUY_HL",
+      "diff": 0.0866,
+      "settled": true,
+      "settled_price": 0.653,
+      "was_profitable": true,
+      "edge": 0.0866,
+      "sim_pnl": 1.299,
+      "signal_at": "2026-06-15T03:59:59.999Z"
+    },
+    {
+      "market": "POLY_ufc-cir-ale30-2026-06-14",
+      "direction": "BUY_HL",
+      "diff": 0.0645,
+      "settled": true,
+      "settled_price": 0.4589,
+      "was_profitable": true,
+      "edge": 0.0645,
+      "sim_pnl": 0.9675,
+      "signal_at": "2026-06-15T03:59:59.999Z"
+    },
+    {
+      "market": "POLY_lol-t1-gen-2026-06-14",
+      "direction": "BUY_PM",
+      "diff": 0.0917,
+      "settled": true,
+      "settled_price": 0.4519,
+      "was_profitable": true,
+      "edge": 0.0917,
+      "sim_pnl": 1.3755,
+      "signal_at": "2026-06-14T12:00:00Z"
+    },
+    {
+      "market": "POLY_cs2-mglz-mnte-2026-06-14",
+      "direction": "BUY_HL",
+      "diff": 0.0914,
+      "settled": true,
+      "settled_price": 0.6594,
+      "was_profitable": true,
+      "edge": 0.0914,
+      "sim_pnl": 1.371,
+      "signal_at": "2026-06-14T18:00:00Z"
+    },
+    {
+      "market": "POLY_cs2-aur1-9z-2026-06-14",
+      "direction": "BUY_HL",
+      "diff": 0.0725,
+      "settled": true,
+      "settled_price": 0.7419,
+      "was_profitable": true,
+      "edge": 0.0725,
+      "sim_pnl": 1.0875,
+      "signal_at": "2026-06-14T21:20:00Z"
+    },
+    {
+      "market": "POLY_lol-ly-tl2-2026-06-14",
+      "direction": "BUY_PM",
+      "diff": 0.051,
+      "settled": true,
+      "settled_price": 0.5368,
+      "was_profitable": true,
+      "edge": 0.051,
+      "sim_pnl": 0.765,
+      "signal_at": "2026-06-15T02:00:00Z"
+    },
+    {
+      "market": "POLY_cs2-g2-lgc-2026-06-14",
+      "direction": "BUY_PM",
+      "diff": 0.0464,
+      "settled": true,
+      "settled_price": 0.5638,
+      "was_profitable": true,
+      "edge": 0.0464,
+      "sim_pnl": 0.696,
+      "signal_at": "2026-06-14T23:00:00Z"
+    },
+    {
+      "market": "POLY_val-lev1-th1-2026-06-14",
+      "direction": "BUY_PM",
+      "diff": 0.0809,
+      "settled": true,
+      "settled_price": 0.5687,
+      "was_profitable": true,
+      "edge": 0.0809,
+      "sim_pnl": 1.2135,
+      "signal_at": "2026-06-14T20:00:00Z"
+    },
+    {
+      "market": "POLY_lol-ly-tl2-2026-06-14-game3",
+      "direction": "BUY_HL",
+      "diff": 0.0743,
+      "settled": true,
+      "settled_price": 0.5288,
+      "was_profitable": true,
+      "edge": 0.0743,
+      "sim_pnl": 1.1145,
+      "signal_at": "2026-06-15T01:00:00Z"
+    },
+    {
+      "market": "POLY_cs2-navi-fal2-2026-06-14-game2",
+      "direction": "BUY_HL",
+      "diff": 0.063,
+      "settled": true,
+      "settled_price": 0.5158,
+      "was_profitable": true,
+      "edge": 0.063,
+      "sim_pnl": 0.945,
+      "signal_at": "2026-06-14T23:40:00Z"
+    },
+    {
+      "market": "POLY_cs2-mglz-mnte-2026-06-14-game2",
+      "direction": "BUY_PM",
+      "diff": 0.0394,
+      "settled": true,
+      "settled_price": 0.5645,
+      "was_profitable": true,
+      "edge": 0.0394,
+      "sim_pnl": 0.591,
+      "signal_at": "2026-06-14T16:00:00Z"
+    },
+    {
+      "market": "POLY_cs2-mouz-fut-2026-06-14-game2",
+      "direction": "BUY_HL",
+      "diff": 0.0358,
+      "settled": true,
+      "settled_price": 0.6662,
+      "was_profitable": true,
+      "edge": 0.0358,
+      "sim_pnl": 0.537,
+      "signal_at": "2026-06-14T16:00:00Z"
+    },
+    {
+      "market": "POLY_lol-ly-tl2-2026-06-14-game2",
+      "direction": "BUY_HL",
+      "diff": 0.0537,
+      "settled": true,
+      "settled_price": 0.6423,
+      "was_profitable": true,
+      "edge": 0.0537,
+      "sim_pnl": 0.8055,
+      "signal_at": "2026-06-15T00:00:00Z"
+    },
+    {
+      "market": "POLY_cs2-aur1-9z-2026-06-14-game2",
+      "direction": "BUY_PM",
+      "diff": 0.0989,
+      "settled": true,
+      "settled_price": 0.7112,
+      "was_profitable": true,
+      "edge": 0.0989,
+      "sim_pnl": 1.4835,
+      "signal_at": "2026-06-14T21:20:00Z"
+    },
+    {
+      "market": "POLY_lol-ly-tl2-2026-06-14-game1",
+      "direction": "BUY_HL",
+      "diff": 0.0559,
+      "settled": true,
+      "settled_price": 0.6417,
+      "was_profitable": true,
+      "edge": 0.0559,
+      "sim_pnl": 0.8385,
+      "signal_at": "2026-06-15T00:00:00Z"
+    }
+  ]
+}
