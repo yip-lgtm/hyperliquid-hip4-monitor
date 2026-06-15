@@ -1398,7 +1398,10 @@ class HIP4Monitor:
 
 class HIP4Backtester:
     """
-    Phase 8: 回測框架 — replays historical arb signals from event logs.
+    Phase 9: Enhanced Backtesting Framework.
+    Replays historical arb signals from hip4_events.jsonl + hip4_performance.json.
+    Computes full performance metrics: Profit Factor, Expectancy, Max Consecutive Loss,
+    Recovery Factor, Sharpe, Sortino, Calmar Ratio, and parameter scan.
     """
     def __init__(self, workspace: str = None):
         self._workspace = Path(workspace or "/home/node/.openclaw/workspace")
@@ -1436,6 +1439,8 @@ class HIP4Backtester:
         start_date: str = None,
         end_date: str = None,
         initial_capital: float = 1000.0,
+        arb_threshold: float = 0.0,
+        sizing_multiplier: float = 1.0,
     ) -> dict:
         events = self.load_events(start_date, end_date)
         signals = self.load_perf_signals()
@@ -1477,10 +1482,16 @@ class HIP4Backtester:
         trade_log = []
         wins = 0
         losses = 0
+        max_consecutive_losses = 0
+        consecutive_losses = 0
+        equity_curve = [initial_capital]
 
         for sig in all_signals:
-            size = sig.get("size_usd", 10.0)
             diff = sig.get("diff", 0)
+            if diff < arb_threshold:
+                continue
+
+            size = sig.get("size_usd", 10.0) * sizing_multiplier
             is_dry_run = sig.get("event") == "dry_run_trade"
             is_settled = sig.get("settled")
 
@@ -1488,34 +1499,61 @@ class HIP4Backtester:
                 pnl = diff * size if sig.get("direction") == "BUY_HL" else -diff * size
                 capital += pnl
                 trade_log.append({"ts": sig["ts"], "pnl": pnl, "capital": capital})
-                wins += 1 if pnl > 0 else 0
-                losses += 1 if pnl <= 0 else 0
+                if pnl > 0:
+                    wins += 1
+                    consecutive_losses = 0
+                else:
+                    losses += 1
+                    consecutive_losses += 1
+                    max_consecutive_losses = max(max_consecutive_losses, consecutive_losses)
             elif is_settled:
                 was_prof = sig.get("was_profitable")
                 if was_prof is not None:
                     pnl = diff * size if was_prof else -diff * size
                     capital += pnl
                     trade_log.append({"ts": sig["ts"], "pnl": pnl, "capital": capital})
-                    wins += 1 if was_prof else 0
-                    losses += 1 if not was_prof else 0
+                    if was_prof:
+                        wins += 1
+                        consecutive_losses = 0
+                    else:
+                        losses += 1
+                        consecutive_losses += 1
+                        max_consecutive_losses = max(max_consecutive_losses, consecutive_losses)
 
+            equity_curve.append(capital)
             peak_capital = max(peak_capital, capital)
             dd = (peak_capital - capital) / peak_capital if peak_capital > 0 else 0
             max_drawdown = max(max_drawdown, dd)
 
         total_trades = wins + losses
-        win_rate = round(wins / total_trades, 3) if total_trades > 0 else 0
+        if total_trades == 0:
+            return {"message": "尚無歷史資料可供回測", "signals_count": 0}
+
+        win_rate = round(wins / total_trades, 3)
         total_return = round(capital - initial_capital, 2)
         total_return_pct = round((capital - initial_capital) / initial_capital * 100, 2)
 
-        if trade_log:
-            pnls = [t["pnl"] for t in trade_log]
-            avg_pnl = sum(pnls) / len(pnls)
-            import statistics
-            std_pnl = statistics.stdev(pnls) if len(pnls) > 1 else 0
-            sharpe = round((avg_pnl / std_pnl) if std_pnl > 0 else 0, 3)
+        import statistics
+        pnls = [t["pnl"] for t in trade_log]
+        gross_profit = sum(p for p in pnls if p > 0)
+        gross_loss = abs(sum(p for p in pnls if p < 0))
+        profit_factor = round(gross_profit / gross_loss, 3) if gross_loss > 0 else float("inf")
+        avg_win = gross_profit / wins if wins > 0 else 0
+        avg_loss = gross_loss / losses if losses > 0 else 0
+        expectancy = round((win_rate * avg_win) - ((1 - win_rate) * avg_loss), 4)
+        recovery_factor = round((capital - initial_capital) / (gross_loss or 1), 3)
+
+        if len(pnls) > 1:
+            returns = [(equity_curve[i] - equity_curve[i-1]) / equity_curve[i-1] for i in range(1, len(equity_curve))]
+            avg_ret = sum(returns) / len(returns)
+            std_ret = statistics.stdev(returns) if len(returns) > 1 else 0
+            sharpe = round((avg_ret / std_ret) * (252 ** 0.5) if std_ret > 0 else 0, 3)
+            downside_returns = [r for r in returns if r < 0]
+            downside_std = statistics.stdev(downside_returns) if len(downside_returns) > 1 else 0
+            sortino = round((avg_ret / downside_std) * (252 ** 0.5) if downside_std > 0 else 0, 3)
+            calmar = round((total_return_pct / 100) / (max_drawdown or 1), 3)
         else:
-            sharpe = 0.0
+            sharpe = sortino = calmar = 0.0
 
         return {
             "start_date": start_date or "all",
@@ -1531,6 +1569,12 @@ class HIP4Backtester:
             "average_edge": round(sum(s.get("diff", 0) for s in all_signals) / len(all_signals), 4),
             "max_drawdown_pct": round(max_drawdown * 100, 2),
             "sharpe_ratio": sharpe,
+            "sortino_ratio": sortino,
+            "calmar_ratio": calmar,
+            "profit_factor": profit_factor,
+            "expectancy": expectancy,
+            "max_consecutive_losses": max_consecutive_losses,
+            "recovery_factor": recovery_factor,
             "signals_count": len(all_signals),
             "trade_log_sample": trade_log[-10:],
         }
@@ -1538,16 +1582,54 @@ class HIP4Backtester:
     def format_report(self, report: dict) -> str:
         if "message" in report:
             return f"⚠️ {report['message']}"
+        pf = report.get("profit_factor", 0)
+        pf_str = f"{pf:.3f}" if pf != float("inf") else "∞"
         lines = [
             f"📊 HIP-4 Backtest ({report['start_date']} → {report['end_date']})",
             f"   Initial: ${report['initial_capital']}  |  Final: ${report['final_capital']}",
             f"   Return: ${report['total_return_usd']} ({report['total_return_pct']}%)",
             f"   Trades: {report['total_trades']}  |  Wins: {report['wins']}  |  Losses: {report['losses']}",
             f"   Win Rate: {report['win_rate']:.1%}  |  Avg Edge: {report['average_edge']:.2%}",
-            f"   Max DD: {report['max_drawdown_pct']:.1f}%  |  Sharpe: {report['sharpe_ratio']}",
+            f"   Profit Factor: {pf_str}  |  Expectancy: ${report.get('expectancy', 0):.4f}",
+            f"   Max DD: {report['max_drawdown_pct']:.1f}%  |  Max Consec Loss: {report.get('max_consecutive_losses', 0)}",
+            f"   Sharpe: {report['sharpe_ratio']}  |  Sortino: {report.get('sortino_ratio', 0)}  |  Calmar: {report.get('calmar_ratio', 0)}",
+            f"   Recovery Factor: {report.get('recovery_factor', 0):.3f}",
         ]
         return "\n".join(lines)
 
+    def parameter_scan(
+        self,
+        thresholds: list = None,
+        sizing_multipliers: list = None,
+    ) -> list:
+        """
+        Phase 9: Simple parameter scan over arb_threshold and sizing_multiplier.
+        Returns results sorted by total_return_pct descending.
+        """
+        if thresholds is None:
+            thresholds = [0.03, 0.05, 0.07, 0.10]
+        if sizing_multipliers is None:
+            sizing_multipliers = [0.8, 1.0, 1.2]
+
+        results = []
+        for th in thresholds:
+            for mult in sizing_multipliers:
+                report = self.run_backtest(
+                    initial_capital=1000,
+                    arb_threshold=th,
+                    sizing_multiplier=mult,
+                )
+                if "message" not in report:
+                    results.append({
+                        "threshold": th,
+                        "sizing_multiplier": mult,
+                        "total_return_pct": report["total_return_pct"],
+                        "win_rate": report["win_rate"],
+                        "sharpe": report["sharpe_ratio"],
+                        "max_dd": report["max_drawdown_pct"],
+                        "profit_factor": report.get("profit_factor"),
+                    })
+        return sorted(results, key=lambda x: x["total_return_pct"], reverse=True)
 
 
 # ── CLI ───────────────────────────────────────────────────────────────────────
