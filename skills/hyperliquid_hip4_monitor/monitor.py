@@ -1887,7 +1887,8 @@ class HIP4BacktesterV2:
         show: bool = False,
     ) -> str:
         """
-        Draw equity curve (ASCII art). Saves to file if save_path given.
+        Draw equity curve (matplotlib if available, else ASCII).
+        Saves PNG if save_path given and matplotlib available.
         Returns the ASCII representation as a string.
         """
         if report is None:
@@ -1895,7 +1896,6 @@ class HIP4BacktesterV2:
         if not report or "trade_log_sample" not in report:
             return "[Backtester] No backtest result available"
 
-        # Reconstruct equity curve from trade log
         trade_log = report.get("trade_log_sample", [])
         initial = report.get("initial_capital", 1000)
         equity_curve = [initial]
@@ -1905,20 +1905,50 @@ class HIP4BacktesterV2:
         if len(equity_curve) < 2:
             return "[Backtester] Not enough trades for equity curve"
 
-        ascii_art = self._render_ascii_curve(equity_curve, report)
+        try:
+            self._plot_matplotlib(equity_curve, report, save_path)
+        except Exception as e:
+            print(f"[Backtester] matplotlib failed ({e}), using ASCII")
 
-        if save_path:
-            try:
-                with open(save_path, "w", encoding="utf-8") as f:
-                    f.write(ascii_art)
-                print(f"[Backtester] Equity curve saved: {save_path}")
-            except Exception as e:
-                print(f"[Backtester] Save failed: {e}")
+        ascii_art = self._render_ascii_curve(equity_curve, report)
 
         if show:
             print(ascii_art)
 
         return ascii_art
+
+    def _plot_matplotlib(self, equity_curve: list, report: dict, save_path: str = None):
+        """Render equity curve with matplotlib."""
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+
+        total_return = report.get("total_return_pct", 0)
+        win_rate = report.get("win_rate", 0)
+        max_dd = report.get("max_drawdown_pct", 0)
+        initial = report.get("initial_capital", 1000)
+
+        fig, ax = plt.subplots(figsize=(11, 5.5))
+        ax.plot(equity_curve, color="#1f77b4", linewidth=2.2, label="Equity")
+        ax.scatter(0, equity_curve[0], color="green", s=60, zorder=5, label="Start")
+        ax.scatter(len(equity_curve)-1, equity_curve[-1], color="red", s=60, zorder=5, label="End")
+        ax.axhline(y=initial, color="gray", linestyle="--", linewidth=0.8, alpha=0.5)
+        ax.set_title(
+            f"HIP-4 Equity Curve | Return: {total_return:+.2f}% | "
+            f"Win Rate: {win_rate:.1%} | Max DD: {max_dd:.2f}%",
+            fontsize=13, pad=15
+        )
+        ax.set_xlabel("Trade Index", fontsize=11)
+        ax.set_ylabel("Portfolio Value (USD)", fontsize=11)
+        ax.grid(True, alpha=0.25)
+        ax.legend(loc="upper left")
+
+        if save_path:
+            plt.savefig(save_path, dpi=160, bbox_inches="tight")
+            print(f"[Backtester] Chart saved: {save_path}")
+
+        plt.close()
+
 
     def _render_ascii_curve(self, equity_curve: list, report: dict) -> str:
         """Render equity curve as ASCII art."""
