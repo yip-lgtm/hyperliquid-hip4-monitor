@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Hyperliquid HIP-4 Monitor + Vote Tracker + Polymarket Arb + WebSocket Real-time Prices
-Phase D + 6 整合版（REST-only，SDK 已排除）
+Phase D + 6 + 7 整合版（REST-only，SDK 已排除）
 """
 
 import json
@@ -533,7 +533,161 @@ def generate_summary(result: dict) -> str:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# Phase 6 Skill Wrapper — REST-only (SDK calls removed)
+# Phase 7: REST-native Trading Engine + Pre-trade Risk Engine
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class RestTradingEngine:
+    """
+    Phase 7: REST-native Safe Trading Execution.
+
+    Replaces SDK Exchange with pure REST order placement.
+    Currently dry_run only — real signing via /exchange endpoint is TODO.
+
+    Features:
+      • Multi-layer pre-trade risk checks
+      • Smart position sizing
+      • dry_run + live modes
+      • Event publishing (trade_submitted / trade_rejected / risk_rejected)
+    """
+
+    def __init__(self, config: dict = None):
+        cfg = config or {}
+        self.enable_trading = cfg.get("enable_trading", False)
+        self.dry_run = cfg.get("dry_run", True)
+        self.max_position_usd = cfg.get("max_position_usd", 100.0)
+        self.daily_loss_limit_usd = cfg.get("daily_loss_limit_usd", 200.0)
+        self.private_key = cfg.get("private_key") or os.getenv("HL_PRIVATE_KEY")
+
+        self.logger = logging.getLogger("RestTradingEngine")
+        self._daily_pnl: float = 0.0
+        self._consecutive_losses: int = 0
+        self._consecutive_losses_limit: int = 3
+
+    # ── Risk Engine ───────────────────────────────────────────────────────────
+
+
+    def _pre_trade_risk_check(self, signal: dict, size_usd: float) -> dict:
+        """Multi-layer risk check. Returns passed + failed_reasons."""
+        checks = {
+            "daily_loss_limit": self._daily_pnl > -self.daily_loss_limit_usd,
+            "consecutive_losses": self._consecutive_losses < self._consecutive_losses_limit,
+            "position_size": size_usd <= self.max_position_usd,
+            "trading_enabled": self.enable_trading,
+        }
+        passed = all(checks.values())
+        failed_reasons = [k for k, v in checks.items() if not v]
+        return {"passed": passed, "failed_reasons": failed_reasons, "checks": checks}
+
+
+    def calculate_position_size(self, diff: float, participation_rate: float = 80.0) -> float:
+        """Smart position sizing."""
+        base = min(self.max_position_usd, 30 + diff * 350)
+        confidence = min(1.0, participation_rate / 100)
+        return round(base * confidence, 2)
+
+
+    def record_trade_result(self, status: str):
+        """Update P&L and loss streak after a trade."""
+        if status in ("error", "risk_rejected"):
+            self._consecutive_losses += 1
+        else:
+            self._consecutive_losses = 0
+
+    # ── Order Execution ───────────────────────────────────────────────────────
+
+
+    def execute_arb_trade(
+        self,
+        signal: dict,
+        suggested_size_usd: float = None,
+        event_logger = None,
+    ) -> dict:
+        """
+        Execute arb trade (sync, not async as in Saba's draft —
+        keeps everything in the same sync pattern as the rest of the skill).
+        """
+        size_usd = (
+            suggested_size_usd
+            or self.calculate_position_size(signal["diff"], 80.0)
+        )
+
+        risk = self._pre_trade_risk_check(signal, size_usd)
+        if not risk["passed"]:
+            self.logger.warning(f"交易被風險引擎拒絕: {risk['failed_reasons']}")
+            self.record_trade_result("risk_rejected")
+            if event_logger:
+                event_logger("risk_rejected", {
+                    "reasons": risk["failed_reasons"],
+                    "signal": signal,
+                    "size_usd": size_usd,
+                })
+            return {
+                "status": "risk_rejected",
+                "reasons": risk["failed_reasons"],
+                "checks": risk["checks"],
+                "signal": signal,
+                "size_usd": size_usd,
+            }
+
+
+        is_buy = signal["direction"] == "PM > HL"
+        hl_asset = signal["hl_market"]
+
+        if self.dry_run or not self.enable_trading:
+            self.logger.info(
+                f"[DRY-RUN] {hl_asset} | ${size_usd} | {'BUY' if is_buy else 'SELL'}"
+            )
+            result = {
+                "status": "dry_run_success",
+                "asset": hl_asset,
+                "size_usd": size_usd,
+                "is_buy": is_buy,
+                "signal": signal,
+                "executed_at": datetime.now(timezone.utc).isoformat(),
+            }
+            if event_logger:
+                event_logger("dry_run_trade", result)
+            return result
+
+        # ── Real REST order (TODO: signing) ───────────────────────────────────
+        try:
+            order_result = self._place_order_rest(
+                asset=hl_asset,
+                is_buy=is_buy,
+                size_usd=size_usd,
+                price=signal["hl_prob"],
+            )
+            self.logger.info(f"真實下單成功: {order_result}")
+            self.record_trade_result("success")
+            if event_logger:
+                event_logger("live_trade_executed", {"result": order_result, "signal": signal})
+            return {"status": "success", "result": order_result, "asset": hl_asset, "size_usd": size_usd}
+        except Exception as e:
+            self.record_trade_result("error")
+            self.logger.error(f"下單失敗: {e}")
+            if event_logger:
+                event_logger("trade_error", {"error": str(e), "signal": signal})
+            return {"status": "error", "error": str(e), "asset": hl_asset}
+
+
+    def _place_order_rest(self, asset: str, is_buy: bool, size_usd: float, price: float) -> dict:
+        """
+        TODO: Real REST order via Hyperliquid /exchange endpoint + Ed25519 signing.
+        Currently returns simulated result.
+        """
+        return {
+            "status": "simulated_rest_order",
+            "asset": asset,
+            "is_buy": is_buy,
+            "size_usd": size_usd,
+            "price": price,
+            "note": "TODO: replace with real REST signing via /exchange endpoint",
+        }
+
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Phase 6+7 Skill Wrapper — REST-only (SDK calls removed)
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class HIP4Monitor:
@@ -586,6 +740,7 @@ class HIP4Monitor:
         # Phase 6: Canonical market tracking (GovernanceTracker)
         self._canonical_markets: Dict[str, Dict] = {}
 
+
         # Phase 6: Performance / Risk
         self._daily_pnl: float = 0.0
         self._consecutive_losses: int = 0
@@ -611,6 +766,12 @@ class HIP4Monitor:
         if config_path:
             with open(config_path) as f:
                 self._config = json.load(f)
+
+        # Phase 7: REST Trading Engine (init after config loaded)
+        self._trading_engine = RestTradingEngine(self._config)
+        # Sync risk state from loaded state into trading engine
+        self._trading_engine._daily_pnl = self._daily_pnl
+        self._trading_engine._consecutive_losses = self._consecutive_losses
 
         self._load_state()
 
@@ -756,6 +917,48 @@ class HIP4Monitor:
             "circuit_broken": self._circuit_broken,
             "timestamp": result.get("timestamp", ""),
         }
+
+    def execute_arb_trade(
+        self,
+        signal: dict = None,
+        size_usd: float = None,
+    ) -> dict:
+        """
+        Phase 7: Execute an arb trade via the REST Trading Engine.
+        If signal is None, uses the best signal from last execute() result.
+        """
+        if signal is None:
+            suggestion = self.get_trading_suggestion()
+            if suggestion.get("action") not in ("EXECUTE_ARB", "MONITOR"):
+                return {"status": "skipped", "reason": suggestion.get("reason", "no signal")}
+            signal = suggestion.get("signal")
+            size_usd = size_usd or suggestion.get("suggested_size_usd")
+
+        result = self._trading_engine.execute_arb_trade(
+            signal=signal,
+            suggested_size_usd=size_usd,
+            event_logger=self._log_event,
+        )
+        # Sync circuit breaker state back
+        self._consecutive_losses = self._trading_engine._consecutive_losses
+        self._daily_pnl = self._trading_engine._daily_pnl
+        if self._consecutive_losses >= self._consecutive_losses_limit:
+            self._circuit_broken = True
+            self._log_event("circuit_breaker_tripped", {"consecutive_losses": self._consecutive_losses})
+        return result
+
+    def auto_execute_from_suggestion(self) -> dict:
+        """
+        Phase 7: Auto-execute based on get_trading_suggestion().
+        Only executes if action == EXECUTE_ARB.
+        """
+        suggestion = self.get_trading_suggestion()
+        if suggestion.get("action") != "EXECUTE_ARB":
+            return {"status": "skipped", "action": suggestion["action"], "reason": suggestion.get("reason")}
+        return self.execute_arb_trade(
+            signal=suggestion.get("signal"),
+            size_usd=suggestion.get("suggested_size_usd"),
+        )
 
     def ingest_settlement_result(
         self,
