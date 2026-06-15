@@ -7,5 +7,10 @@
   "enable_llm_matching": true,
   "semantic_cache_ttl_minutes": 90,
   "confidence_threshold": 0.72,
-  "fallback_to_keyword": true
+  "fallback_to_keyword": true,
+  "arb_threshold": 0.05,
+  "position_size_pct": 0.05,
+  "exit_spread_threshold": 0.01,
+  "dry_run": true,
+  "leverage": 1
 }

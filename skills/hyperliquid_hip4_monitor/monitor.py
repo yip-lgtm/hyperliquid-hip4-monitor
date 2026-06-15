@@ -953,6 +953,13 @@ class HIP4Monitor:
         self._daily_loss_limit_usd: float = 200.0
         self._max_position_usd: float = 100.0
 
+        # Phase 9: Strategy config
+        self._arb_threshold: float = self._config.get("arb_threshold", 0.05)
+        self._position_size_pct: float = self._config.get("position_size_pct", 0.05)
+        self._exit_spread_threshold: float = self._config.get("exit_spread_threshold", 0.01)
+        self._dry_run: bool = self._config.get("dry_run", True)
+        self._leverage: int = self._config.get("leverage", 1)
+
         # Phase 6: Circuit breaker
         self._circuit_broken: bool = False
 
@@ -1117,6 +1124,7 @@ class HIP4Monitor:
         if self._circuit_broken:
             return {"action": "HOLD", "reason": "Circuit breaker active"}
 
+
         result = self._last_result
         if not result or not result.get("arb_signals"):
             return {"action": "HOLD", "reason": "無 arb 機會"}
@@ -1124,11 +1132,15 @@ class HIP4Monitor:
         best = max(result["arb_signals"], key=lambda x: x["diff"])
         size = self._calculate_position_size(best["diff"], self._vote_participation)
 
-        if (best["diff"] >= 0.08
+        # Phase 9: Use config thresholds
+        execute_threshold = self._arb_threshold * 1.6  # 8% if threshold is 5%
+        monitor_threshold = self._arb_threshold
+
+        if (best["diff"] >= execute_threshold
                 and self._vote_participation >= 80
                 and self._consecutive_losses < self._consecutive_losses_limit):
             action = "EXECUTE_ARB"
-        elif best["diff"] >= 0.05:
+        elif best["diff"] >= monitor_threshold:
             action = "MONITOR"
         else:
             action = "HOLD"
@@ -1312,9 +1324,26 @@ class HIP4Monitor:
 
     def _calculate_position_size(self, diff: float, participation: float) -> float:
         """
-        Phase 6: Advisory position sizing (no SDK, pure formula).
+        Phase 9: Position sizing based on account value * position_size_pct.
+        Falls back to formula if account value unavailable.
         Returns suggested USD size.
         """
+        # Try to get account value via trading engine
+        account_value = 0.0
+        wallet_addr = getattr(self._trading_engine, 'wallet_address', None) or os.getenv("HL_WALLET_ADDRESS")
+        if wallet_addr:
+            try:
+                state = get_account_state(wallet_addr)
+                account_value = state.get("account_value", 0.0)
+            except Exception:
+                pass
+
+        if account_value > 0:
+            # Phase 9: size = account_value * position_size_pct
+            size = account_value * self._position_size_pct
+            return round(min(size, self._max_position_usd), 2)
+
+        # Fallback formula
         base = min(self._max_position_usd, 25 + (diff * 400))
         return round(base * min(1.0, participation / 100), 2)
 
