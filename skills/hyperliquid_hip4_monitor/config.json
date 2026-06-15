@@ -2,5 +2,10 @@
   "poll_interval_minutes": 3,
   "arb_prices": {},
   "state_file": "/tmp/hip4_state.json",
-  "announce_channel": "telegram"
+  "announce_channel": "telegram",
+  "minimax_api_key": "sk-cp-U7P8WHLAkpxFOD_4anZVQwG8H8dd9FKjzpKEDdRZSVi_LUIrS9i_W-lgt1ibmqzj-auokn9ilAo0mRJw5qnZq9K-UsvARZukgo0mLh9gh3MHN1nH_PRcdfM",
+  "enable_llm_matching": true,
+  "semantic_cache_ttl_minutes": 90,
+  "confidence_threshold": 0.72,
+  "fallback_to_keyword": true
 }

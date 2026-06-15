@@ -886,8 +886,16 @@ class HIP4Monitor:
         arb_threshold: float = 0.05,
         workspace: str = "/home/node/.openclaw/workspace",
     ):
+        if config_path is None:
+            config_path = str(Path(workspace) / "skills" / "hyperliquid_hip4_monitor" / "config.json")
         self.arb_threshold = arb_threshold
         self._config = {}
+        if config_path:
+            try:
+                with open(config_path, "r", encoding="utf-8") as f:
+                    self._config = json.load(f)
+            except Exception as e:
+                print(f"[HIP4Monitor] Config load error: {e}")
         self._last_result: Optional[dict] = None
         self._ws_feed: Optional[WebSocketPriceFeed] = None
 
@@ -897,8 +905,34 @@ class HIP4Monitor:
         self._perf_file   = self._workspace / "hip4_performance.json"
         self._state_file  = self._workspace / "hip4_phase6_state.json"
 
-        # Phase 7: Semantic Matcher
-        self._llm_callable = self._config.get("llm_callable") or None
+        # Phase 7: Semantic Matcher — build LLM callable from Minimax API key
+        self._llm_callable: Optional[callable] = None
+        api_key = self._config.get("minimax_api_key") or self._config.get("llm_callable")
+        if api_key and self._config.get("enable_llm_matching", False):
+            import requests as _req
+            _api_key = api_key
+            def _minimax_llm(prompt: str) -> str:
+                resp = _req.post(
+                    "https://api.minimax.io/anthropic/v1/messages",
+                    headers={
+                        "x-api-key": _api_key,
+                        "anthropic-version": "2023-06-01",
+                        "Content-Type": "application/json",
+                    },
+                    json={
+                        "model": "MiniMax-M2.7",
+                        "max_tokens": 200,
+                        "messages": [{"role": "user", "content": prompt}],
+                    },
+                    timeout=15,
+                )
+                data = resp.json()
+                for block in data.get("content", []):
+                    if block.get("type") == "text":
+                        return block["text"]
+                return str(data.get("content", ""))
+            self._llm_callable = _minimax_llm
+
         self._semantic_matcher: Optional[SemanticMatcher] = None
         if self._llm_callable or self._config.get("enable_llm_matching", False):
             self._semantic_matcher = SemanticMatcher(
