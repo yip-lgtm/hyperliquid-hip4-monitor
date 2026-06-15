@@ -16,6 +16,8 @@ from typing import Optional, Dict, List, Any
 from collections import defaultdict
 
 import requests
+from eth_account import Account
+from eth_account.messages import encode_typed_data
 
 # ── API ──────────────────────────────────────────────────────────────────────
 
@@ -536,6 +538,86 @@ def generate_summary(result: dict) -> str:
 # Phase 7: REST-native Trading Engine + Pre-trade Risk Engine
 # ═══════════════════════════════════════════════════════════════════════════════
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# Phase 7-B: Hyperliquid REST Order Signer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+EXCHANGE_URL = "https://api.hyperliquid.xyz/exchange"
+
+
+class HyperliquidRestSigner:
+    """
+    Phase 7-B: Hyperliquid REST order signing using eth_account.
+    Uses /exchange endpoint with EIP-712 Ed25519 signing.
+    """
+    def __init__(self, private_key: str, api_url: str = "https://api.hyperliquid.xyz"):
+        self.private_key = private_key
+        self.api_url = api_url.rstrip("/")
+        self.account = Account.from_key(private_key)
+        self.address = self.account.address.lower()
+
+    def _get_nonce(self) -> int:
+        return int(time.time() * 1000)
+
+    def _sign_action(self, action: dict, nonce: int) -> str:
+        connection_id = self._make_connection_id(action, nonce)
+        structured_data = {
+            "types": {
+                "EIP712Domain": [
+                    {"name": "name", "type": "string"},
+                    {"name": "version", "type": "string"},
+                    {"name": "chainId", "type": "uint256"},
+                    {"name": "verifyingContract", "type": "address"},
+                ],
+                "Agent": [
+                    {"name": "source", "type": "string"},
+                    {"name": "connectionId", "type": "bytes32"},
+                ],
+            },
+            "primaryType": "Agent",
+            "domain": {
+                "name": "HyperliquidSignTransaction",
+                "version": "1",
+                "chainId": 1337,
+                "verifyingContract": "0x0000000000000000000000000000000000000000",
+            },
+            "message": {
+                "source": "a",
+                "connectionId": connection_id,
+            },
+        }
+        encoded = encode_typed_data(structured_data)
+        signed = self.account.sign_message(encoded)
+        return signed.signature.hex()
+
+    def _make_connection_id(self, action: dict, nonce: int) -> str:
+        action_str = json.dumps(action, sort_keys=True) + str(nonce)
+        return "0x" + hashlib.sha256(action_str.encode()).hexdigest()
+
+    def place_order(self, asset: str, is_buy: bool, sz: float, limit_px: float,
+                   reduce_only: bool = False, tif: str = "Gtc") -> dict:
+        nonce = self._get_nonce()
+        action = {
+            "type": "order",
+            "orders": [{
+                "asset": asset,
+                "isBuy": is_buy,
+                "limitPx": str(limit_px),
+                "sz": str(sz),
+                "reduceOnly": reduce_only,
+                "tif": tif,
+            }],
+            "grouping": "na",
+        }
+        signature = self._sign_action(action, nonce)
+        payload = {"action": action, "nonce": nonce, "signature": signature}
+        try:
+            r = requests.post(EXCHANGE_URL, json=payload, timeout=15)
+            return r.json()
+        except Exception as e:
+            return {"status": "error", "message": str(e)}
+
+
 class RestTradingEngine:
     """
     Phase 7: REST-native Safe Trading Execution.
@@ -562,6 +644,14 @@ class RestTradingEngine:
         self._daily_pnl: float = 0.0
         self._consecutive_losses: int = 0
         self._consecutive_losses_limit: int = 3
+
+        # Phase 7-B: REST signer (only init when trading enabled and not dry_run)
+        self._signer: Optional[HyperliquidRestSigner] = None
+        if self.enable_trading and not self.dry_run and self.private_key:
+            try:
+                self._signer = HyperliquidRestSigner(self.private_key)
+            except Exception as e:
+                self.logger.warning(f"REST signer init failed: {e}")
 
     # ── Risk Engine ───────────────────────────────────────────────────────────
 
@@ -672,17 +762,21 @@ class RestTradingEngine:
 
     def _place_order_rest(self, asset: str, is_buy: bool, size_usd: float, price: float) -> dict:
         """
-        TODO: Real REST order via Hyperliquid /exchange endpoint + Ed25519 signing.
-        Currently returns simulated result.
+        Phase 7-B: Real REST order via Hyperliquid /exchange endpoint.
+        Uses HyperliquidRestSigner for EIP-712 Ed25519 signing.
         """
-        return {
-            "status": "simulated_rest_order",
-            "asset": asset,
-            "is_buy": is_buy,
-            "size_usd": size_usd,
-            "price": price,
-            "note": "TODO: replace with real REST signing via /exchange endpoint",
-        }
+        if not self._signer:
+            return {
+                "status": "error",
+                "message": "REST signer not initialized (check private_key)",
+            }
+        result = self._signer.place_order(
+            asset=asset,
+            is_buy=is_buy,
+            sz=size_usd,
+            limit_px=price,
+        )
+        return result
 
 
 
