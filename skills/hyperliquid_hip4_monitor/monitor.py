@@ -618,6 +618,68 @@ class HyperliquidRestSigner:
             return {"status": "error", "message": str(e)}
 
 
+
+# ── Phase C: Account State (REST) ───────────────────────────────────────────
+
+def get_account_state(address: str) -> dict:
+    """
+    Phase C: Fetch account state via Hyperliquid REST API.
+    Returns margin summary, withdrawable balance, and open positions.
+    """
+    try:
+        r = requests.post(
+            "https://api.hyperliquid.xyz/info",
+            json={"type": "clearinghouseState", "user": address},
+            timeout=10,
+        )
+        if r.status_code != 200:
+            return {"ok": False, "error": f"HTTP {r.status_code}"}
+        data = r.json()
+        ms = data.get("marginSummary", {})
+        return {
+            "ok": True,
+            "account_value": float(ms.get("accountValue", 0)),
+            "total_ntl_pos": float(ms.get("totalNtlPos", 0)),
+            "total_raw_usd": float(ms.get("totalRawUsd", 0)),
+            "total_margin_used": float(ms.get("totalMarginUsed", 0)),
+            "withdrawable": float(data.get("withdrawable", 0)),
+            "asset_positions": data.get("assetPositions", []),
+            "cross_maintenance_margin": float(data.get("crossMaintenanceMarginUsed", 0)),
+        }
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
+def get_spot_balances(address: str) -> dict:
+    """
+    Phase C: Fetch spot balances via Hyperliquid REST API.
+    Returns token balances (USDC, etc).
+    """
+    try:
+        r = requests.post(
+            "https://api.hyperliquid.xyz/info",
+            json={"type": "spotClearinghouseState", "user": address},
+            timeout=10,
+        )
+        if r.status_code != 200:
+            return {"ok": False, "error": f"HTTP {r.status_code}"}
+        data = r.json()
+        balances = data.get("balances", [])
+        return {
+            "ok": True,
+            "balances": [
+                {
+                    "coin": b["coin"],
+                    "total": float(b["total"]),
+                    "hold": float(b["hold"]),
+                }
+                for b in balances
+            ],
+        }
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
 class RestTradingEngine:
     """
     Phase 7: REST-native Safe Trading Execution.
@@ -639,6 +701,7 @@ class RestTradingEngine:
         self.max_position_usd = cfg.get("max_position_usd", 100.0)
         self.daily_loss_limit_usd = cfg.get("daily_loss_limit_usd", 200.0)
         self.private_key = cfg.get("private_key") or os.getenv("HL_PRIVATE_KEY")
+        self.wallet_address = cfg.get("wallet_address") or os.getenv("HL_WALLET_ADDRESS")
 
         self.logger = logging.getLogger("RestTradingEngine")
         self._daily_pnl: float = 0.0
@@ -657,13 +720,27 @@ class RestTradingEngine:
 
 
     def _pre_trade_risk_check(self, signal: dict, size_usd: float) -> dict:
-        """Multi-layer risk check. Returns passed + failed_reasons."""
+        """
+        Phase C: Multi-layer risk check including actual account state.
+        Fetches live balance from Hyperliquid REST API if wallet_address is set.
+        """
         checks = {
             "daily_loss_limit": self._daily_pnl > -self.daily_loss_limit_usd,
             "consecutive_losses": self._consecutive_losses < self._consecutive_losses_limit,
             "position_size": size_usd <= self.max_position_usd,
             "trading_enabled": self.enable_trading,
         }
+
+        # Phase C: Account balance check (only if wallet_address available)
+        if self.wallet_address:
+            state = get_account_state(self.wallet_address)
+            if state.get("ok"):
+                withdrawable = state["withdrawable"]
+                checks["has_balance"] = withdrawable >= size_usd
+                checks["margin_headroom"] = state["account_value"] > 0
+            else:
+                checks["account_fetch_ok"] = False
+
         passed = all(checks.values())
         failed_reasons = [k for k, v in checks.items() if not v]
         return {"passed": passed, "failed_reasons": failed_reasons, "checks": checks}
@@ -978,6 +1055,24 @@ class HIP4Monitor:
             "circuit_broken": self._circuit_broken,
             "max_position_usd": self._max_position_usd,
         }
+
+    def get_account_state(self) -> dict:
+        """
+        Phase C: Get live account state from Hyperliquid REST API.
+        Requires wallet_address in config or HL_WALLET_ADDRESS env var.
+        Returns margin summary, withdrawable balance, open positions.
+        """
+        address = (
+            self._config.get("wallet_address")
+            or os.getenv("HL_WALLET_ADDRESS")
+        )
+        if not address:
+            return {"ok": False, "error": "No wallet_address configured"}
+        state = get_account_state(address)
+        if state.get("ok"):
+            spot = get_spot_balances(address)
+            state["spot_balances"] = spot.get("balances", []) if spot.get("ok") else []
+        return state
 
     def get_trading_suggestion(self) -> dict:
         """
