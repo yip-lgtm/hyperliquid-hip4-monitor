@@ -390,17 +390,17 @@ def find_arb_signals(
             pm_question = pm.get("question", "") or ""
             slug = (pm.get("slug") or "").lower()
 
+            # Phase 9: Keyword pre-filter — skip if no shared keywords (reduces LLM calls)
+            if not (any(kw in hl_name.lower() for kw in EVENT_KEYWORDS) and
+                    any(kw in pm_question.lower() or kw in slug for kw in EVENT_KEYWORDS)):
+                continue
+
             # Phase 7: Use SemanticMatcher if provided
             if semantic_matcher is not None:
                 is_match, confidence = semantic_matcher.is_same_event(hl_name, pm_question)
-                if not is_match:
+                if not is_match or confidence < semantic_matcher.confidence_threshold:
                     continue
             else:
-                # Legacy keyword fallback
-                pm_lower = pm_question.lower()
-                if not (any(kw in hl_name.lower() for kw in EVENT_KEYWORDS) and
-                        any(kw in pm_lower or kw in slug for kw in EVENT_KEYWORDS)):
-                    continue
                 confidence = 0.6
 
             try:
