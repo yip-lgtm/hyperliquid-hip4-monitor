@@ -1297,6 +1297,164 @@ class HIP4Monitor:
             self._logger.error(f"Save state failed: {e}")
 
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# Phase 8: Backtesting Framework
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class HIP4Backtester:
+    """
+    Phase 8: 回測框架 — replays historical arb signals from event logs.
+    """
+    def __init__(self, workspace: str = None):
+        self._workspace = Path(workspace or "/home/node/.openclaw/workspace")
+        self._events_file = self._workspace / "hip4_events.jsonl"
+        self._perf_file   = self._workspace / "hip4_performance.json"
+
+    def load_events(self, start_date: str = None, end_date: str = None) -> list:
+        if not self._events_file.exists():
+            return []
+        events = []
+        with open(self._events_file, "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    entry = json.loads(line)
+                    ts = entry.get("ts", "")
+                    if start_date and ts < start_date:
+                        continue
+                    if end_date and ts > end_date:
+                        continue
+                    if entry.get("event") in ("dry_run_trade", "live_trade_executed"):
+                        events.append(entry)
+                except Exception:
+                    pass
+        return events
+
+    def load_perf_signals(self) -> list:
+        if not self._perf_file.exists():
+            return []
+        with open(self._perf_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("signals", [])
+
+    def run_backtest(
+        self,
+        start_date: str = None,
+        end_date: str = None,
+        initial_capital: float = 1000.0,
+    ) -> dict:
+        events = self.load_events(start_date, end_date)
+        signals = self.load_perf_signals()
+
+        all_signals = []
+        for e in events:
+            p = e.get("payload", {})
+            sig = p.get("signal", {})
+            all_signals.append({
+                "ts": e.get("ts"),
+                "event": e.get("event"),
+                "asset": p.get("asset"),
+                "size_usd": p.get("size_usd"),
+                "diff": sig.get("diff"),
+                "direction": sig.get("direction"),
+            })
+
+        for s in signals:
+            if s.get("settled"):
+                all_signals.append({
+                    "ts": s.get("signal_at"),
+                    "event": "settled_signal",
+                    "asset": s.get("market"),
+                    "direction": s.get("direction"),
+                    "diff": s.get("diff"),
+                    "settled": True,
+                    "settled_price": s.get("settled_price"),
+                    "was_profitable": s.get("was_profitable"),
+                })
+
+        if not all_signals:
+            return {"message": "尚無歷史資料可供回測", "signals_count": 0}
+
+        all_signals.sort(key=lambda x: x.get("ts") or "")
+
+        capital = initial_capital
+        peak_capital = initial_capital
+        max_drawdown = 0.0
+        trade_log = []
+        wins = 0
+        losses = 0
+
+        for sig in all_signals:
+            size = sig.get("size_usd", 10.0)
+            diff = sig.get("diff", 0)
+            is_dry_run = sig.get("event") == "dry_run_trade"
+            is_settled = sig.get("settled")
+
+            if is_dry_run:
+                pnl = diff * size if sig.get("direction") == "BUY_HL" else -diff * size
+                capital += pnl
+                trade_log.append({"ts": sig["ts"], "pnl": pnl, "capital": capital})
+                wins += 1 if pnl > 0 else 0
+                losses += 1 if pnl <= 0 else 0
+            elif is_settled:
+                was_prof = sig.get("was_profitable")
+                if was_prof is not None:
+                    pnl = diff * size if was_prof else -diff * size
+                    capital += pnl
+                    trade_log.append({"ts": sig["ts"], "pnl": pnl, "capital": capital})
+                    wins += 1 if was_prof else 0
+                    losses += 1 if not was_prof else 0
+
+            peak_capital = max(peak_capital, capital)
+            dd = (peak_capital - capital) / peak_capital if peak_capital > 0 else 0
+            max_drawdown = max(max_drawdown, dd)
+
+        total_trades = wins + losses
+        win_rate = round(wins / total_trades, 3) if total_trades > 0 else 0
+        total_return = round(capital - initial_capital, 2)
+        total_return_pct = round((capital - initial_capital) / initial_capital * 100, 2)
+
+        if trade_log:
+            pnls = [t["pnl"] for t in trade_log]
+            avg_pnl = sum(pnls) / len(pnls)
+            import statistics
+            std_pnl = statistics.stdev(pnls) if len(pnls) > 1 else 0
+            sharpe = round((avg_pnl / std_pnl) if std_pnl > 0 else 0, 3)
+        else:
+            sharpe = 0.0
+
+        return {
+            "start_date": start_date or "all",
+            "end_date": end_date or "all",
+            "initial_capital": initial_capital,
+            "final_capital": round(capital, 2),
+            "total_return_usd": total_return,
+            "total_return_pct": total_return_pct,
+            "total_trades": total_trades,
+            "wins": wins,
+            "losses": losses,
+            "win_rate": win_rate,
+            "average_edge": round(sum(s.get("diff", 0) for s in all_signals) / len(all_signals), 4),
+            "max_drawdown_pct": round(max_drawdown * 100, 2),
+            "sharpe_ratio": sharpe,
+            "signals_count": len(all_signals),
+            "trade_log_sample": trade_log[-10:],
+        }
+
+    def format_report(self, report: dict) -> str:
+        if "message" in report:
+            return f"⚠️ {report['message']}"
+        lines = [
+            f"📊 HIP-4 Backtest ({report['start_date']} → {report['end_date']})",
+            f"   Initial: ${report['initial_capital']}  |  Final: ${report['final_capital']}",
+            f"   Return: ${report['total_return_usd']} ({report['total_return_pct']}%)",
+            f"   Trades: {report['total_trades']}  |  Wins: {report['wins']}  |  Losses: {report['losses']}",
+            f"   Win Rate: {report['win_rate']:.1%}  |  Avg Edge: {report['average_edge']:.2%}",
+            f"   Max DD: {report['max_drawdown_pct']:.1f}%  |  Sharpe: {report['sharpe_ratio']}",
+        ]
+        return "\n".join(lines)
+
+
+
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
