@@ -1,0 +1,22 @@
+[
+  {
+    "type": "OTE_RR25",
+    "direction": "LONG",
+    "entry": 19809.47,
+    "sl": 19800.0,
+    "target1": 19793.5,
+    "target2": 19833.15,
+    "runner_target": 19787.0,
+    "rr": 2.5,
+    "risk_usd": 75.76,
+    "size": 1,
+    "swing_low": 19800.0,
+    "swing_high": 19813.0,
+    "ote_zone_hit": true,
+    "ltf_rejection": false,
+    "mss_confirmed": false,
+    "kill_zone": false,
+    "time": "2026-06-12T12:00:00Z",
+    "note": "Entry 19809.47 | SL 19800.0 | Risk $75.76 | RR 2.5 | Zone True | Reject False | MSS False"
+  }
+]

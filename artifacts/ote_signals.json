@@ -1,0 +1,61 @@
+[
+  {
+    "type": "OTE_RR25",
+    "direction": "LONG",
+    "entry": 19935,
+    "sl": 19928,
+    "target1": 19857.6,
+    "target2": 19806,
+    "rr": 18.43,
+    "risk_usd": 56,
+    "size": 2,
+    "time": "2026-06-11T15:21:42.983Z",
+    "note": "RR 18.43 | Risk $56 | Kill zone: true"
+  },
+  {
+    "type": "OTE_RR25",
+    "direction": "LONG",
+    "entry": 19980,
+    "sl": 19970,
+    "target1": 20040,
+    "target2": 20080,
+    "rr": 10,
+    "risk_usd": 80,
+    "size": 2,
+    "time": "2026-06-11T15:35:48.667Z",
+    "note": "RR 10 | Risk $80 | Kill zone: true"
+  },
+  {
+    "type": "OTE_RR25",
+    "direction": "LONG",
+    "entry": 19990,
+    "sl": 19980,
+    "target1": 20062,
+    "target2": 20110,
+    "rr": 12,
+    "risk_usd": 80,
+    "size": 2,
+    "time": "2026-06-11T15:37:53.139Z",
+    "note": "RR 12 | Risk $80 | Kill zone: true"
+  },
+  {
+    "type": "OTE_RR25",
+    "direction": "LONG",
+    "entry": 19809.47,
+    "sl": 19800.0,
+    "target1": 19793.5,
+    "target2": 19833.13,
+    "runner_target": 19787.0,
+    "rr": 2.5,
+    "risk_usd": 75.72,
+    "size": 1,
+    "swing_low": 19800.0,
+    "swing_high": 19813.0,
+    "ote_zone_hit": true,
+    "ltf_rejection": true,
+    "mss_confirmed": true,
+    "kill_zone": false,
+    "time": "2026-06-12T11:57:27.416428",
+    "note": "Entry 19809.47 | SL 19800.0 | Risk $75.72 | RR 2.5 | Zone True | Reject True | MSS True"
+  }
+]

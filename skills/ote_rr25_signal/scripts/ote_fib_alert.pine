@@ -1,0 +1,92 @@
+//+------------------------------------------------------------------+
+//| OTE Fib Alert v2 - MNQ 5min | 50K Challenge Logic               |
+//+------------------------------------------------------------------+
+//@version=5
+
+// === INPUTS ===
+length = input.int(20, "Swing Lookback Length")
+fib705 = input.float(0.705, "Fib 0.705 Level")
+fib79 = input.float(0.79, "Fib 0.79 Level")
+
+// EMA for daily bias
+emaLen = input.int(20, "EMA Length for Bias")
+
+// === SWING DETECTION ===
+piv_low = ta.pivotlow(length, length)
+piv_high = ta.pivothigh(length, length)
+
+var float last_swing_low = na
+var float last_swing_high = na
+var int last_swing_low_bar = na
+var int last_swing_high_bar = na
+
+if not na(piv_low)
+    last_swing_low := piv_low
+    last_swing_low_bar := bar_index - length
+
+if not na(piv_high)
+    last_swing_high := piv_high
+    last_swing_high_bar := bar_index - length
+
+// === FIB LEVELS ===
+float range = na
+float level705 = na
+float level79 = na
+
+if not na(last_swing_low) and not na(last_swing_high) and last_swing_low_bar < last_swing_high_bar
+    range := last_swing_high - last_swing_low
+    level705 := last_swing_low + range * fib705
+    level79 := last_swing_low + range * fib79
+
+// === PLOTS FOR ALERTS ===
+plot(last_swing_low, "Swing Low", color=color.blue, linewidth=1, style=plot.style_cross)
+plot(last_swing_high, "Swing High", color=color.green, linewidth=1, style=plot.style_cross)
+plot(level705, "0.705", color=color.orange, linewidth=2, style=plot.style_line)
+plot(level79, "0.79", color=color.red, linewidth=2, style=plot.style_line)
+
+// === DAILY BIAS (EMA on 5min) ===
+ema20 = ta.ema(close, emaLen)
+daily_bias = close > ema20 ? "bullish" : "bearish"
+
+// === OTE ZONE CHECK ===
+ote_zone_hit = not na(level705) and not na(level79) and (close >= level705 and close <= level79)
+
+// === LTF REJECTION (bullish: lower wick > 60% range, close in upper 30%) ===
+range20 = high - low
+lowerWick = close > open ? low : open  // for bullish: low or open is the bottom
+wickPct = range20 > 0 ? (close - lowerWick) / range20 : 0
+ltf_rejection = wickPct >= 0.6 and close > open
+
+// Bearish rejection (lower wick on red candle reversed)
+lowerWickBear = close < open ? high : open
+wickPctBear = range20 > 0 ? (lowerWickBear - close) / range20 : 0
+ltf_rejection_bear = wickPctBear >= 0.6 and close < open
+
+// === MSS CONFIRMED (break of previous swing high/low) ===
+var float prev_swing_high_val = na
+var float prev_swing_low_val = na
+
+if not na(last_swing_high) and last_swing_high_bar < bar_index - length
+    prev_swing_high_val := last_swing_high
+if not na(last_swing_low) and last_swing_low_bar < bar_index - length
+    prev_swing_low_val := last_swing_low
+
+mss_confirmed = close > prev_swing_high_val or close < prev_swing_low_val
+
+// === KILL ZONE (London 07:00-08:00 UTC, NY 13:30-14:30 UTC) ===
+hourUTC = hour(tz="UTC")
+kill_zone = (hourUTC >= 7 and hourUTC < 8) or (hourUTC >= 13 and hourUTC < 14)
+
+// === DEBUG LABELS ===
+if barstate.islast
+    label.new(bar_index, close, "Bias: " + daily_bias + "\nZone: " + str.tostring(ote_zone_hit) + "\nReject: " + str.tostring(ltf_rejection or ltf_rejection_bear) + "\nMSS: " + str.tostring(mss_confirmed), color=color.gray, textcolor=color.white, size=size.small)
+
+// === ALERT CONDITIONS ===
+alertcondition(ote_zone_hit and (ltf_rejection or ltf_rejection_bear) and mss_confirmed, "OTE Signal", "OTE conditions met - check daily bias and enter")
+alertcondition(ote_zone_hit, "In OTE Zone", "Price entered 0.705-0.79 zone")
+alertcondition(close > level79, "Cross 0.79", "Price crossed 0.79 fib level")
+
+// === SEND TO WEBHOOK ===
+// TradingView alert message (JSON):
+// {"symbol": "MNQ", "close": {{close}}, "swing_low": {{plot_0}}, "swing_high": {{plot_1}}, "daily_bias": "{{strategy.order.filled ???}}"} 
+// Use {{close}}, {{plot_0}}, {{plot_1}} as before, plus manually send: daily_bias, ote_zone_hit, ltf_rejection, mss_confirmed, kill_zone

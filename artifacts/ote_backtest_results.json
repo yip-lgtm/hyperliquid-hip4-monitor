@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "period": "30d",
+    "interval": "1h",
+    "lookback": 20,
+    "minRR": 2.5,
+    "maxRiskUsd": 80,
+    "oteZone": "0.705-0.79"
+  },
+  "totalStats": {
+    "total": 0,
+    "wins": 0,
+    "losses": 0,
+    "winRate": "0%",
+    "avgRR": 0,
+    "avgRiskUsd": 0,
+    "simPnl": 0,
+    "rrDistribution": {}
+  },
+  "bySymbol": {}
+}

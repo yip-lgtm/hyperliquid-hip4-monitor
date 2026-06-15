@@ -982,17 +982,18 @@ class HIP4Monitor:
 
     # ── Phase 6: Public Interface ──────────────────────────────────────────────
 
-    def execute(self, ws_enabled: bool = False) -> dict:
+    def execute(self, ws_enabled: bool = False, fast_mode: bool = False) -> dict:
         """
         Run the full monitor loop (REST-only).
-        Returns structured result dict with governance + arb data.
+        fast_mode=True skips LLM semantic matching (keyword-only) for faster cron runs.
         """
         self._last_heartbeat = datetime.now(timezone.utc)
         try:
+            matcher = None if fast_mode else self._semantic_matcher
             result = run_monitor(
                 arb_threshold=self.arb_threshold,
                 ws_enabled=ws_enabled,
-                semantic_matcher=self._semantic_matcher,
+                semantic_matcher=matcher,
             )
             self._last_result = result
 

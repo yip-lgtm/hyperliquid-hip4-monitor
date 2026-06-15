@@ -1,0 +1,13 @@
+OTE RR25 Webhook Server running on port 5000
+TEST_MODE=false, KILL_SWITCH=$90, MAX_SIGNALS=2
+[WEBHOOK] Received: {"close":19940,"swing_low":19928,"swing_high":20060,"daily_bias":"bullish","ote_zone_hit":true,"kill_zone":true}
+[WEBHOOK] Received: {"close":19980,"swing_low":19950,"swing_high":20100,"daily_bias":"bullish","ote_zone_hit":true,"kill_zone":true}
+OTE RR25 v2 server on port 5000 | TEST_MODE=false
+[WEBHOOK] {"close":19980,"swing_low":19950,"swing_high":20100,"daily_bias":"bullish","target":20060,"ote_zone_hit":true,"kill_zone":true}
+[WEBHOOK] {"close":19980,"swing_low":19970,"swing_high":20100,"daily_bias":"bullish","target":20080,"ote_zone_hit":true,"kill_zone":true}
+[SIGNAL] {"type":"OTE_RR25","direction":"LONG","entry":19980,"sl":19970,"target1":20040,"target2":20080,"rr":10,"risk_usd":80,"size":2,"time":"2026-06-11T15:35:48.667Z","note":"RR 10 | Risk $80 | Kill zone: true"}
+[TG] Status: 301
+Traceback (most recent call last):
+  File "/home/node/.openclaw/workspace/skills/ote_rr25_signal/scripts/webhook_server.py", line 11, in <module>
+    from flask import Flask, request, jsonify
+ModuleNotFoundError: No module named 'flask'

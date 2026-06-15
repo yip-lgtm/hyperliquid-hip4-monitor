@@ -1,0 +1,44 @@
+{
+  "symbols": {
+    "MBT": {
+      "enabled": true,
+      "exchange": "kraken",
+      "kraken_pair": "XXBTZUSD",
+      "point_value": 0.1,
+      "max_contracts": 1,
+      "poll_interval_seconds": 30
+    },
+    "MNQ": {
+      "enabled": true,
+      "exchange": "polygon",
+      "polygon_symbol": "I:MNQ1!",
+      "point_value": 2,
+      "max_contracts": 2,
+      "poll_interval_seconds": 60
+    },
+    "MGC": {
+      "enabled": true,
+      "exchange": "polygon",
+      "polygon_symbol": "I:MGC1!",
+      "point_value": 10,
+      "max_contracts": 2,
+      "poll_interval_seconds": 60
+    }
+  },
+  "global": {
+    "min_rr": 2.5,
+    "max_risk_usd_per_trade": 80,
+    "daily_kill_switch": 100,
+    "max_signals_per_day": 2,
+    "lookback_bars": 30,
+    "kill_zone_london_start": 8,
+    "kill_zone_london_end": 10,
+    "kill_zone_ny_start": 14,
+    "kill_zone_ny_end": 16,
+    "polygon_api_key": "YOUR_POLYGON_API_KEY"
+  },
+  "telegram": {
+    "bot_token": "8800877619:AAGPvnuow7WHT0S4KquOfxFKZe7F0WY50Fw",
+    "chat_id": "8475453959"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "ts": "2026-06-15T10:22:52.406653+00:00",
+  "report": {
+    "ts": "2026-06-15T10:22:52.406623+00:00",
+    "mode": "real_only",
+    "initial_capital": 1000.0,
+    "final_capital": 1008.844,
+    "total_return_usd": 8.844,
+    "total_return_pct": 0.8844,
+    "total_trades": 12,
+    "wins": 12,
+    "losses": 0,
+    "win_rate": 1.0,
+    "average_edge": 0.0737,
+    "max_drawdown_pct": 0.0,
+    "sharpe_ratio": 71.2929,
+    "sortino_ratio": 0.0,
+    "calmar_ratio": 0.0,
+    "profit_factor": Infinity,
+    "expectancy": 0.737,
+    "max_consecutive_losses": 0,
+    "recovery_factor": 0.0,
+    "signals_count": 12,
+    "trade_log_sample": [
+      {
+        "ts": "2026-06-14T20:00:00Z",
+        "asset": "POLY_val-lev1-th1-2026-06-14",
+        "pnl": 0.809,
+        "capital": 1002.64,
+        "profitable": true
+      },
+      {
+        "ts": "2026-06-14T21:20:00Z",
+        "asset": "POLY_cs2-aur1-9z-2026-06-14",
+        "pnl": 0.725,
+        "capital": 1003.365,
+        "profitable": true
+      },
+      {
+        "ts": "2026-06-14T21:20:00Z",
+        "asset": "POLY_cs2-aur1-9z-2026-06-14-game2",
+        "pnl": 0.989,
+        "capital": 1004.354,
+        "profitable": true
+      },
+      {
+        "ts": "2026-06-14T23:40:00Z",
+        "asset": "POLY_cs2-navi-fal2-2026-06-14-game2",
+        "pnl": 0.63,
+        "capital": 1004.984,
+        "profitable": true
+      },
+      {
+        "ts": "2026-06-15T00:00:00Z",
+        "asset": "POLY_lol-ly-tl2-2026-06-14-game2",
+        "pnl": 0.537,
+        "capital": 1005.521,
+        "profitable": true
+      },
+      {
+        "ts": "2026-06-15T00:00:00Z",
+        "asset": "POLY_lol-ly-tl2-2026-06-14-game1",
+        "pnl": 0.559,
+        "capital": 1006.08,
+        "profitable": true
+      },
+      {
+        "ts": "2026-06-15T01:00:00Z",
+        "asset": "POLY_lol-ly-tl2-2026-06-14-game3",
+        "pnl": 0.743,
+        "capital": 1006.823,
+        "profitable": true
+      },
+      {
+        "ts": "2026-06-15T02:00:00Z",
+        "asset": "POLY_lol-ly-tl2-2026-06-14",
+        "pnl": 0.51,
+        "capital": 1007.333,
+        "profitable": true
+      },
+      {
+        "ts": "2026-06-15T03:59:59.999Z",
+        "asset": "POLY_ufc-jus3-ili1-2026-06-14",
+        "pnl": 0.866,
+        "capital": 1008.199,
+        "profitable": true
+      },
+      {
+        "ts": "2026-06-15T03:59:59.999Z",
+        "asset": "POLY_ufc-cir-ale30-2026-06-14",
+        "pnl": 0.645,
+        "capital": 1008.844,
+        "profitable": true
+      }
+    ]
+  }
+}
