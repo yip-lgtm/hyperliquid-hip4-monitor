@@ -1876,6 +1876,99 @@ class HIP4BacktesterV2:
 
 
 
+
+
+    # ── Equity Curve ──────────────────────────────────────────────────────────
+
+    def plot_equity_curve(
+        self,
+        report: dict = None,
+        save_path: str = None,
+        show: bool = False,
+    ) -> str:
+        """
+        Draw equity curve (ASCII art). Saves to file if save_path given.
+        Returns the ASCII representation as a string.
+        """
+        if report is None:
+            report = self.load_state().get("report", {})
+        if not report or "trade_log_sample" not in report:
+            return "[Backtester] No backtest result available"
+
+        # Reconstruct equity curve from trade log
+        trade_log = report.get("trade_log_sample", [])
+        initial = report.get("initial_capital", 1000)
+        equity_curve = [initial]
+        for t in trade_log:
+            equity_curve.append(t.get("capital", initial))
+
+        if len(equity_curve) < 2:
+            return "[Backtester] Not enough trades for equity curve"
+
+        ascii_art = self._render_ascii_curve(equity_curve, report)
+
+        if save_path:
+            try:
+                with open(save_path, "w", encoding="utf-8") as f:
+                    f.write(ascii_art)
+                print(f"[Backtester] Equity curve saved: {save_path}")
+            except Exception as e:
+                print(f"[Backtester] Save failed: {e}")
+
+        if show:
+            print(ascii_art)
+
+        return ascii_art
+
+    def _render_ascii_curve(self, equity_curve: list, report: dict) -> str:
+        """Render equity curve as ASCII art."""
+        import math
+        min_v = min(equity_curve)
+        max_v = max(equity_curve)
+        total_return = report.get("total_return_pct", 0)
+        win_rate = report.get("win_rate", 0)
+        max_dd = report.get("max_drawdown_pct", 0)
+        initial = report.get("initial_capital", 1000)
+
+        height = 12
+        width = min(len(equity_curve), 60)
+        step = max(1, len(equity_curve) // width)
+
+        grid = [[" "] * width for _ in range(height)]
+
+        for col in range(width):
+            val_idx = min(col * step, len(equity_curve) - 1)
+            val = equity_curve[val_idx]
+            row = int((val - min_v) / (max_v - min_v) * (height - 1)) if max_v != min_v else height // 2
+            row = max(0, min(height - 1, row))
+            grid[height - 1 - row][col] = "█"
+
+        # Peak
+        peak_idx = equity_curve.index(max(equity_curve))
+        peak_col = min((peak_idx // step) if step > 0 else 0, width - 1)
+        grid[0][peak_col] = "▲"
+
+        # Final
+        final_col = width - 1
+        grid[height - 1][final_col] = "►"
+
+        lines = []
+        for h in range(height - 1, -1, -1):
+            threshold = min_v + (max_v - min_v) * ((height - 1 - h) / max(height - 1, 1))
+            row_str = "".join(grid[h])
+            lines.append(f"{threshold:8.2f} \u2502 {row_str}")
+
+        sep = " " * 9 + "│" + "─" * (width + 2)
+        header = (
+            f"\n=== Equity Curve ==="
+            f"  Initial: \${initial:.2f}"
+            f"  Final: \${equity_curve[-1]:.2f} ({total_return:+.2f}%)"
+            f"  Win: {win_rate:.1%}  Max DD: {max_dd:.2f}%\n"
+        )
+        footer = " " * 9 + "└" + "─" * (width + 2) + "  Trade \u2192"
+
+        return header + sep + "\n" + "\n".join(lines) + "\n" + footer + "\n"
+
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
