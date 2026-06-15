@@ -8,7 +8,7 @@
   "semantic_cache_ttl_minutes": 90,
   "confidence_threshold": 0.72,
   "fallback_to_keyword": true,
-  "arb_threshold": 0.05,
+  "arb_threshold": 0.02,
   "position_size_pct": 0.05,
   "exit_spread_threshold": 0.01,
   "dry_run": true,
