@@ -1,0 +1,6 @@
+{
+  "poll_interval_minutes": 3,
+  "arb_prices": {},
+  "state_file": "/tmp/hip4_state.json",
+  "announce_channel": "telegram"
+}

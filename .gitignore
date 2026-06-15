@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+hip4_events.jsonl
+hip4_performance.json
+hip4_phase6_state.json
