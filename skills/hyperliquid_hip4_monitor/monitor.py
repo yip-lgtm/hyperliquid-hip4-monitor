@@ -1999,6 +1999,114 @@ class HIP4BacktesterV2:
 
         return header + sep + "\n" + "\n".join(lines) + "\n" + footer + "\n"
 
+
+# ── Semantic Matcher (Phase 9) ───────────────────────────────────────────────
+
+import hashlib
+from datetime import datetime, timedelta
+from typing import Tuple, Optional, Callable
+
+
+class SemanticMatcher:
+    """
+    Phase 9: LLM-powered semantic matching between Hyperliquid markets and Polymarket questions.
+    Replaces keyword-only matching with proper semantic understanding.
+    Caches results for 90 min, falls back to keyword matching if LLM unavailable.
+    """
+    def __init__(
+        self,
+        llm_callable: Optional[Callable] = None,
+        cache_ttl_minutes: int = 90,
+        confidence_threshold: float = 0.72,
+        fallback_to_keyword: bool = True,
+    ):
+        self.llm_callable = llm_callable
+        self.cache_ttl = timedelta(minutes=cache_ttl_minutes)
+        self.confidence_threshold = confidence_threshold
+        self.fallback_to_keyword = fallback_to_keyword
+        self.cache: dict = {}
+
+    def _cache_key(self, hl_name: str, pm_question: str) -> str:
+        combined = f"{hl_name.strip().lower()}||{pm_question.strip().lower()}"
+        return hashlib.md5(combined.encode()).hexdigest()
+
+    def _cache_valid(self, ts: datetime) -> bool:
+        return datetime.now() - ts < self.cache_ttl
+
+    def is_same_event(self, hl_market_name: str, pm_question: str) -> Tuple[bool, float]:
+        """
+        Returns (is_match: bool, confidence: float).
+        Checks cache first, then calls LLM, then falls back to keyword.
+        """
+        key = self._cache_key(hl_market_name, pm_question)
+
+        if key in self.cache:
+            (is_match, conf), ts = self.cache[key]
+            if self._cache_valid(ts):
+                return is_match, conf
+
+        if not self.llm_callable:
+            if self.fallback_to_keyword:
+                match = self._keyword_fallback(hl_market_name, pm_question)
+                return match, 0.65 if match else 0.30
+            return False, 0.0
+
+        prompt = self._build_prompt(hl_market_name, pm_question)
+        try:
+            response = self.llm_callable(prompt)
+            is_match, confidence = self._parse_response(response)
+            self.cache[key] = ((is_match, confidence), datetime.now())
+            return is_match, confidence
+        except Exception as e:
+            print(f"[SemanticMatcher] LLM error: {e}")
+            if self.fallback_to_keyword:
+                match = self._keyword_fallback(hl_market_name, pm_question)
+                return match, 0.60 if match else 0.25
+            return False, 0.0
+
+    def _build_prompt(self, hl_name: str, pm_question: str) -> str:
+        return (
+            f'你是一個專業的預測市場事件比對助手。\n\n'
+            f'請判斷以下兩個市場是否在描述「同一件真實世界事件」：\n\n'
+            f'Hyperliquid 市場名稱：\n{hl_name}\n\n'
+            f'Polymarket 問題描述：\n{pm_question}\n\n'
+            f'請嚴格按照以下 JSON 格式輸出（不要有其他文字）：\n'
+            f'{{"is_same_event": true 或 false, "confidence": 0.0到1.0, "reason": "簡短理由"}}'
+        )
+
+    def _parse_response(self, response: str) -> Tuple[bool, float]:
+        text = response.strip()
+        if "\`\`\`" in text:
+            parts = text.split("\`\`\`")
+            if len(parts) >= 2:
+                text = parts[1].strip()
+        try:
+            data = json.loads(text)
+            is_match = bool(data.get("is_same_event", False))
+            confidence = float(data.get("confidence", 0.5))
+            return is_match, max(0.0, min(1.0, confidence))
+        except Exception:
+            return False, 0.0
+
+    def _keyword_fallback(self, hl_name: str, pm_question: str) -> bool:
+        """Basic keyword fallback when LLM unavailable."""
+        hl = hl_name.lower()
+        pm = pm_question.lower()
+        # Strip common noise words
+        for w in [" outcome", " resolved", " - yes", " - no", " will ", " does ", " is "]:
+            hl = hl.replace(w, "")
+            pm = pm.replace(w, "")
+        # Check overlap of meaningful tokens
+        hl_words = set(hl.split())
+        pm_words = set(pm.split())
+        overlap = hl_words & pm_words
+        # Require at least 2 shared non-stopword tokens
+        stopwords = {"the", "a", "an", "or", "and", "to", "of", "in", "on", "at", "by", "for", "will", "be", "is", "are", "was", "were"}
+        meaningful = overlap - stopwords
+        return len(meaningful) >= 2
+
+
+
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
