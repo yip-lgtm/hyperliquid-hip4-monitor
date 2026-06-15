@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Sensitive data
+*.pem
+*.key
+private_key*
+.env
+config_local.py
+secrets.py
+
+# Large/rapidly-changing data files
+# hip4_events.jsonl
+# hip4_performance.json
+
+# Temp and logs
+*.tmp
+*.log
+.DS_Store
+*.swp
