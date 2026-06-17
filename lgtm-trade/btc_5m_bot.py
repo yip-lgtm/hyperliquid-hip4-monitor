@@ -25,6 +25,7 @@ MAX_DAILY_LOSS = 30.0  # Max $30 daily loss
 CHECK_INTERVAL = 81
 TARGET_CYCLES = 50
 STATE_WINDOW = 4
+MIN_STATE_N = 2
 ATR_MULT = 0.8
 VOL_MULT = 0.1
 
@@ -454,6 +455,9 @@ async def run_trading_cycle():
     elif prob_continue < MIN_PROB:
         reason = f"p̂ {prob_continue:.3f} < {MIN_PROB}"
         signal_active = False
+    elif state_n < MIN_STATE_N:
+        reason = f"n={state_n} < {MIN_STATE_N} (unreliable state)"
+        signal_active = False
     elif edge < MIN_EDGE:
         reason = f"Δ {edge:.3f} < {MIN_EDGE}"
         signal_active = False
@@ -473,6 +477,7 @@ async def run_trading_cycle():
 📊 <b>Filters:</b>
 🔸 ATR: <code>{current_atr:.2f}</code> {'✅' if passes_atr else '❌'} (need &gt;{atr_avg*ATR_MULT:.2f})
 🔸 Vol: <code>{current_vol:.4f}</code> {'✅' if passes_vol else '❌'} (need &gt;{vol_avg*VOL_MULT:.4f})
+🔸 State n: <code>{state_n}</code> {'✅' if state_n >= MIN_STATE_N else '❌'} (need &gt;={MIN_STATE_N})
 
 📈 <b>Market:</b> {market['question']}
 🔹 YES: <code>{market['yes_price']:.3f}</code> / NO: <code>{market['no_price']:.3f}</code>
