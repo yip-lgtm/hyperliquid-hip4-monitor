@@ -29,9 +29,12 @@ class MNQ_ORB:
 
     def run(self, df):
         df = df.copy()
-        df['Datetime'] = pd.to_datetime(df['Datetime'])
+        # Handle mixed timezones (EDT/EST transition)
+        df['Datetime'] = pd.to_datetime(df['Datetime'], utc=True)
         df = df.set_index('Datetime').sort_index()
-        df['time'] = df.index.time
+        # Convert to US/Eastern for time-based filtering
+        df['us_eastern'] = df.index.tz_convert('US/Eastern')
+        df['time'] = df['us_eastern'].dt.time
 
         signals = []
 
