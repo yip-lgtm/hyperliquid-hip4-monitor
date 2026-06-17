@@ -1,27 +1,118 @@
 {
   "trades": [
-    {"cycle": 123, "direction": "UP", "prob": 0.667, "edge": 0.192, "outcome": "DOWN", "won": false, "pnl": -0.8, "resolved": true},
-    {"cycle": 125, "direction": "UP", "prob": 0.667, "edge": 0.192, "outcome": "DOWN", "won": false, "pnl": -0.8, "resolved": true},
-    {"cycle": 126, "direction": "UP", "prob": 1.000, "edge": 0.505, "outcome": "UP", "won": true, "pnl": 2.525, "resolved": true},
-    {"cycle": 127, "direction": "UP", "prob": 1.000, "edge": 0.505, "outcome": "UP", "won": true, "pnl": 2.525, "resolved": true},
-    {"cycle": 128, "direction": "UP", "prob": 1.000, "edge": 0.505, "outcome": "UP", "won": true, "pnl": 2.525, "resolved": true},
-    {"cycle": 140, "direction": "UP", "prob": 0.583, "edge": 0.088, "outcome": "UP", "won": true, "pnl": 0.44, "resolved": true},
-    {"cycle": 141, "direction": "UP", "prob": 0.583, "edge": 0.088, "outcome": "UP", "won": true, "pnl": 0.44, "resolved": true},
-    {"cycle": 142, "direction": "UP", "prob": 0.609, "edge": 0.114, "outcome": "UP", "won": true, "pnl": 0.57, "resolved": true},
-    {"cycle": 143, "direction": "UP", "prob": 0.609, "edge": 0.114, "outcome": "UP", "won": true, "pnl": 0.57, "resolved": true}
+    {
+      "cycle": 123,
+      "direction": "UP",
+      "prob": 0.667,
+      "edge": 0.192,
+      "outcome": "DOWN",
+      "won": false,
+      "pnl": -0.8,
+      "resolved": true
+    },
+    {
+      "cycle": 125,
+      "direction": "UP",
+      "prob": 0.667,
+      "edge": 0.192,
+      "outcome": "DOWN",
+      "won": false,
+      "pnl": -0.8,
+      "resolved": true
+    },
+    {
+      "cycle": 126,
+      "direction": "UP",
+      "prob": 1.0,
+      "edge": 0.505,
+      "outcome": "UP",
+      "won": true,
+      "pnl": 2.525,
+      "resolved": true
+    },
+    {
+      "cycle": 127,
+      "direction": "UP",
+      "prob": 1.0,
+      "edge": 0.505,
+      "outcome": "UP",
+      "won": true,
+      "pnl": 2.525,
+      "resolved": true
+    },
+    {
+      "cycle": 128,
+      "direction": "UP",
+      "prob": 1.0,
+      "edge": 0.505,
+      "outcome": "UP",
+      "won": true,
+      "pnl": 2.525,
+      "resolved": true
+    },
+    {
+      "cycle": 140,
+      "direction": "UP",
+      "prob": 0.583,
+      "edge": 0.088,
+      "outcome": "UP",
+      "won": true,
+      "pnl": 0.44,
+      "resolved": true
+    },
+    {
+      "cycle": 141,
+      "direction": "UP",
+      "prob": 0.583,
+      "edge": 0.088,
+      "outcome": "UP",
+      "won": true,
+      "pnl": 0.44,
+      "resolved": true
+    },
+    {
+      "cycle": 142,
+      "direction": "UP",
+      "prob": 0.609,
+      "edge": 0.114,
+      "outcome": "UP",
+      "won": true,
+      "pnl": 0.57,
+      "resolved": true
+    },
+    {
+      "cycle": 143,
+      "direction": "UP",
+      "prob": 0.609,
+      "edge": 0.114,
+      "outcome": "UP",
+      "won": true,
+      "pnl": 0.57,
+      "resolved": true
+    },
+    {
+      "cycle": 179,
+      "direction": "DOWN",
+      "prob": 1.0,
+      "edge": 0.495,
+      "outcome": "UP",
+      "won": false,
+      "pnl": -2.475,
+      "resolved": true
+    }
   ],
   "stats": {
-    "total": 9,
+    "total": 10,
     "wins": 7,
-    "losses": 2,
+    "losses": 3,
     "pending": 0,
-    "pnl": 8.31,
-    "win_rate": 77.8,
-    "profit_factor": 3.5,
-    "avg_win": 1.19,
-    "avg_loss": 0.80,
-    "rr": 1.49,
-    "updated": "2026-06-17T11:50:00Z"
+    "pnl": 5.52,
+    "win_rate": 70.0,
+    "profit_factor": 2.33,
+    "avg_win": 1.37,
+    "avg_loss": 1.36,
+    "rr": 1.01,
+    "updated": "2026-06-17T12:10:00Z"
   },
   "iteration": 2,
   "config": {
