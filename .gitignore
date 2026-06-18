@@ -3,3 +3,7 @@ __pycache__/
 hip4_events.jsonl
 hip4_performance.json
 hip4_phase6_state.json
+mnq-1m/
+nq_2024_tos_1m.csv
+nq_q4_2024_tos.csv
+mnq_q4_2024_us.csv
