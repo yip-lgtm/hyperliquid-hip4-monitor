@@ -1,1 +1,2 @@
 [2026-06-12T13:32:00Z] OTE daily reset -> HTTP 200 | PnL: 0.00 | Signals: 0
+[2026-06-15 13:32 UTC] OTE daily reset | HTTP 200 | pnl=0.00, signals=0, date=2026-06-15

@@ -1,0 +1,108 @@
+{
+  "days": 5,
+  "total_cycles": 288,
+  "signals": 8,
+  "wins": 4,
+  "losses": 4,
+  "pnl": 0.79,
+  "win_rate": 50.0,
+  "profit_factor": 1.0,
+  "trades": [
+    {
+      "cycle": 36,
+      "state": "3121",
+      "direction": "DOWN",
+      "prob": 1.0,
+      "edge": 0.519,
+      "yes_price": 0.481,
+      "actual": "UP",
+      "won": false,
+      "pnl": -2.41,
+      "time": "06-16 13:05"
+    },
+    {
+      "cycle": 99,
+      "state": "5111",
+      "direction": "DOWN",
+      "prob": 1.0,
+      "edge": 0.524,
+      "yes_price": 0.476,
+      "actual": "DOWN",
+      "won": true,
+      "pnl": 2.62,
+      "time": "06-16 18:20"
+    },
+    {
+      "cycle": 140,
+      "state": "4561",
+      "direction": "UP",
+      "prob": 1.0,
+      "edge": 0.507,
+      "yes_price": 0.507,
+      "actual": "UP",
+      "won": true,
+      "pnl": 2.54,
+      "time": "06-16 21:45"
+    },
+    {
+      "cycle": 145,
+      "state": "3121",
+      "direction": "UP",
+      "prob": 1.0,
+      "edge": 0.521,
+      "yes_price": 0.521,
+      "actual": "UP",
+      "won": true,
+      "pnl": 2.61,
+      "time": "06-16 22:10"
+    },
+    {
+      "cycle": 172,
+      "state": "4561",
+      "direction": "UP",
+      "prob": 1.0,
+      "edge": 0.511,
+      "yes_price": 0.511,
+      "actual": "UP",
+      "won": true,
+      "pnl": 2.56,
+      "time": "06-17 00:25"
+    },
+    {
+      "cycle": 192,
+      "state": "5111",
+      "direction": "DOWN",
+      "prob": 1.0,
+      "edge": 0.529,
+      "yes_price": 0.471,
+      "actual": "UP",
+      "won": false,
+      "pnl": -2.35,
+      "time": "06-17 02:05"
+    },
+    {
+      "cycle": 228,
+      "state": "3121",
+      "direction": "DOWN",
+      "prob": 1.0,
+      "edge": 0.533,
+      "yes_price": 0.467,
+      "actual": "UP",
+      "won": false,
+      "pnl": -2.33,
+      "time": "06-17 05:05"
+    },
+    {
+      "cycle": 255,
+      "state": "3121",
+      "direction": "DOWN",
+      "prob": 1.0,
+      "edge": 0.512,
+      "yes_price": 0.488,
+      "actual": "UP",
+      "won": false,
+      "pnl": -2.44,
+      "time": "06-17 07:20"
+    }
+  ]
+}

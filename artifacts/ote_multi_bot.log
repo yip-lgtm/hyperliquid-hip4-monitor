@@ -325,3 +325,639 @@ PNL: $0 | Signals: 0/2
 [2026-06-15T10:51:02.243Z] [MBT] No RR≥2.5 signal
 [2026-06-15T10:51:02.243Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
 [2026-06-15T10:51:02.244Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T10:54:04.460Z] === OTE Multi Bot run ===
+[2026-06-15T10:54:04.462Z] PNL: $0 | Signals: 0/2
+[2026-06-15T10:54:04.507Z] [MBT] Close: 65721.8 | High: 65735.5 | Low: 65669.1
+[2026-06-15T10:54:04.508Z] [MBT] No RR≥2.5 signal
+[2026-06-15T10:54:04.508Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T10:54:04.508Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T10:57:05.464Z] === OTE Multi Bot run ===
+[2026-06-15T10:57:05.466Z] PNL: $0 | Signals: 0/2
+[2026-06-15T10:57:05.506Z] [MBT] Close: 65849.8 | High: 65904.8 | Low: 65669.1
+[2026-06-15T10:57:05.507Z] [MBT] No RR≥2.5 signal
+[2026-06-15T10:57:05.507Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T10:57:05.507Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+
+[2026-06-15T10:57:05.464Z] === OTE Multi Bot run ===
+[2026-06-15T10:57:05.466Z] PNL: $0 | Signals: 0/2
+[2026-06-15T10:57:05.506Z] [MBT] Close: 65849.8 | High: 65904.8 | Low: 65669.1
+[2026-06-15T10:57:05.507Z] [MBT] No RR≥2.5 signal
+[2026-06-15T10:57:05.507Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T10:57:05.507Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:03:35.113Z] === OTE Multi Bot run ===
+[2026-06-15T11:03:35.116Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:03:35.171Z] [MBT] Close: 65852.9 | High: 65914.5 | Low: 65678.3
+[2026-06-15T11:03:35.172Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:03:35.172Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:03:35.172Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:06:01.909Z] === OTE Multi Bot run ===
+[2026-06-15T11:06:01.911Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:06:01.963Z] [MBT] Close: 65895.2 | High: 65914.5 | Low: 65678.3
+[2026-06-15T11:06:01.963Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:06:01.963Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:06:01.963Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:09:02.190Z] === OTE Multi Bot run ===
+[2026-06-15T11:09:02.194Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:09:02.371Z] [MBT] Close: 65928.5 | High: 65955 | Low: 65679.9
+[2026-06-15T11:09:02.372Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:09:02.372Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:09:02.372Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:09:02.190Z] Run complete. PNL: $0 | Signals: 0/2 | MBT: no RR≥2.5 signal | MNQ/MGC: Polygon.io API key not configured
+[2026-06-15T11:12:01.888Z] === OTE Multi Bot run ===
+[2026-06-15T11:12:01.888Z] === OTE Multi Bot run ===
+[2026-06-15T11:12:01.890Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:12:01.890Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:12:01.942Z] [MBT] Close: 65954.9 | High: 65955 | Low: 65692.7
+[2026-06-15T11:12:01.942Z] [MBT] Close: 65954.9 | High: 65955 | Low: 65692.7
+[2026-06-15T11:12:01.942Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:12:01.942Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:12:01.942Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:12:01.942Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:12:01.943Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:12:01.943Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:15:03.045Z] === OTE Multi Bot run ===
+[2026-06-15T11:15:03.045Z] === OTE Multi Bot run ===
+[2026-06-15T11:15:03.050Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:15:03.050Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:15:03.101Z] [MBT] Close: 65903.5 | High: 65955 | Low: 65692.7
+[2026-06-15T11:15:03.101Z] [MBT] Close: 65903.5 | High: 65955 | Low: 65692.7
+[2026-06-15T11:15:03.102Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:15:03.102Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:15:03.102Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:15:03.102Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:15:03.102Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:15:03.102Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:18:01.799Z] === OTE Multi Bot run ===
+[2026-06-15T11:18:01.802Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:18:01.987Z] [MBT] Close: 65960 | High: 65960 | Low: 65692.7
+[2026-06-15T11:18:01.987Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:18:01.988Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:18:01.988Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:21:01.889Z] === OTE Multi Bot run ===
+[2026-06-15T11:21:01.892Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:21:02.071Z] [MBT] Close: 66177 | High: 66273.8 | Low: 65692.7
+[2026-06-15T11:21:02.072Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:21:02.072Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:21:02.072Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:21:01Z] Run: MBT no signal (close 66177), MNQ/MGC missing polygon key
+[2026-06-15T11:24:09.793Z] === OTE Multi Bot run ===
+[2026-06-15T11:24:09.798Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:24:09.858Z] [MBT] Close: 66286 | High: 66298.6 | Low: 65790.9
+[2026-06-15T11:24:09.860Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:24:09.860Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:24:09.860Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:27:02.123Z] === OTE Multi Bot run ===
+[2026-06-15T11:27:02.126Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:27:02.188Z] [MBT] Close: 66275.1 | High: 66330.4 | Low: 65801.7
+[2026-06-15T11:27:02.188Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:27:02.188Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:27:02.189Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+
+[2026-06-15T11:27:02.123Z] === OTE Multi Bot run ===
+[2026-06-15T11:27:02.126Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:27:02.188Z] [MBT] Close: 66275.1 | High: 66330.4 | Low: 65801.7
+[2026-06-15T11:27:02.188Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:27:02.189Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:27:02.189Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:30:03.140Z] === OTE Multi Bot run ===
+[2026-06-15T11:30:03.140Z] === OTE Multi Bot run ===
+[2026-06-15T11:30:03.143Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:30:03.143Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:30:03.329Z] [MBT] Close: 66214.7 | High: 66330.4 | Low: 65844.9
+[2026-06-15T11:30:03.329Z] [MBT] Close: 66214.7 | High: 66330.4 | Low: 65844.9
+[2026-06-15T11:30:03.329Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:30:03.329Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:30:03.329Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:30:03.329Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:30:03.329Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:30:03.329Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:33:02.053Z] === OTE Multi Bot run ===
+[2026-06-15T11:33:02.056Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:33:02.241Z] [MBT] Close: 66131.8 | High: 66330.4 | Low: 65856.7
+[2026-06-15T11:33:02.242Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:33:02.242Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:33:02.242Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:36:01.821Z] === OTE Multi Bot run ===
+[2026-06-15T11:36:01.821Z] === OTE Multi Bot run ===
+[2026-06-15T11:36:01.826Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:36:01.826Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:36:01.870Z] [MBT] Close: 66159.5 | High: 66330.4 | Low: 65859.3
+[2026-06-15T11:36:01.870Z] [MBT] Close: 66159.5 | High: 66330.4 | Low: 65859.3
+[2026-06-15T11:36:01.871Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:36:01.871Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:36:01.871Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:36:01.871Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:36:01.871Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:36:01.871Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:39:02.144Z] === OTE Multi Bot run ===
+[2026-06-15T11:39:02.147Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:39:02.208Z] [MBT] Close: 66149.4 | High: 66330.4 | Low: 65887.9
+[2026-06-15T11:39:02.208Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:39:02.208Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:39:02.208Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:42:06.547Z] === OTE Multi Bot run ===
+[2026-06-15T11:42:06.550Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:42:06.730Z] [MBT] Close: 66158.2 | High: 66330.4 | Low: 65887.9
+[2026-06-15T11:42:06.732Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:42:06.732Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:42:06.732Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:45:02.379Z] === OTE Multi Bot run ===
+[2026-06-15T11:45:02.383Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:45:02.432Z] [MBT] Close: 66124.4 | High: 66330.4 | Low: 65941.3
+[2026-06-15T11:45:02.432Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:45:02.433Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:45:02.433Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:45:02.379Z] === OTE Multi Bot run ===
+[2026-06-15T11:45:02.383Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:45:02.432Z] [MBT] Close: 66124.4 | High: 66330.4 | Low: 65941.3
+[2026-06-15T11:45:02.432Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:45:02.433Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:45:02.433Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:48:05.704Z] === OTE Multi Bot run ===
+[2026-06-15T11:48:05.704Z] === OTE Multi Bot run ===
+[2026-06-15T11:48:05.705Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:48:05.705Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:48:05.754Z] [MBT] Close: 66129.3 | High: 66330.4 | Low: 66047.2
+[2026-06-15T11:48:05.754Z] [MBT] Close: 66129.3 | High: 66330.4 | Low: 66047.2
+[2026-06-15T11:48:05.755Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:48:05.755Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:48:05.755Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:48:05.755Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:48:05.755Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:48:05.755Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:51:06.486Z] === OTE Multi Bot run ===
+[2026-06-15T11:51:06.486Z] === OTE Multi Bot run ===
+[2026-06-15T11:51:06.488Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:51:06.488Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:51:06.533Z] [MBT] Close: 66157.8 | High: 66330.4 | Low: 66100
+[2026-06-15T11:51:06.533Z] [MBT] Close: 66157.8 | High: 66330.4 | Low: 66100
+[2026-06-15T11:51:06.534Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:51:06.534Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:51:06.534Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:51:06.534Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:51:06.534Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:51:06.534Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:54:06.854Z] === OTE Multi Bot run ===
+[2026-06-15T11:54:06.854Z] === OTE Multi Bot run ===
+[2026-06-15T11:54:06.855Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:54:06.855Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:54:06.965Z] [MBT] Close: 66186.8 | High: 66330.4 | Low: 66100
+[2026-06-15T11:54:06.965Z] [MBT] Close: 66186.8 | High: 66330.4 | Low: 66100
+[2026-06-15T11:54:06.966Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:54:06.966Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:54:06.966Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:54:06.966Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:54:06.966Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:54:06.966Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:57:01.901Z] === OTE Multi Bot run ===
+[2026-06-15T11:57:01.905Z] PNL: $0 | Signals: 0/2
+[2026-06-15T11:57:01.952Z] [MBT] Close: 66202.5 | High: 66266.4 | Low: 66100
+[2026-06-15T11:57:01.952Z] [MBT] No RR≥2.5 signal
+[2026-06-15T11:57:01.953Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T11:57:01.953Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:03:32.632Z] === OTE Multi Bot run ===
+[2026-06-15T12:03:32.635Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:03:32.822Z] [MBT] Close: 66154.8 | High: 66218.5 | Low: 66100
+[2026-06-15T12:03:32.823Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:03:32.823Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:03:32.823Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:06:11.265Z] === OTE Multi Bot run ===
+[2026-06-15T12:06:11.268Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:06:11.354Z] [MBT] Close: 66128.8 | High: 66216 | Low: 66071.5
+[2026-06-15T12:06:11.355Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:06:11.356Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:06:11.356Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:09:02.499Z] === OTE Multi Bot run ===
+[2026-06-15T12:09:02.502Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:09:02.546Z] [MBT] Close: 66153.8 | High: 66216 | Low: 66071.5
+[2026-06-15T12:09:02.547Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:09:02.547Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:09:02.547Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:12:02.196Z] === OTE Multi Bot run ===
+[2026-06-15T12:12:02.199Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:12:02.280Z] [MBT] Close: 66233.4 | High: 66259.7 | Low: 66071.5
+[2026-06-15T12:12:02.281Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:12:02.281Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:12:02.281Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:12:02.196Z] === OTE Multi Bot run ===
+[2026-06-15T12:12:02.199Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:12:02.280Z] [MBT] Close: 66233.4 | High: 66259.7 | Low: 66071.5
+[2026-06-15T12:12:02.281Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:12:02.281Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:12:02.281Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:15:02.439Z] === OTE Multi Bot run ===
+[2026-06-15T12:15:02.442Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:15:02.487Z] [MBT] Close: 66241.4 | High: 66259.7 | Low: 66071.5
+[2026-06-15T12:15:02.487Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:15:02.488Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:15:02.488Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:18:01.834Z] === OTE Multi Bot run ===
+[2026-06-15T12:18:01.837Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:18:01.884Z] [MBT] Close: 66182 | High: 66259.7 | Low: 66071.5
+[2026-06-15T12:18:01.884Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:18:01.884Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:18:01.884Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+
+[2026-06-15T12:18:01.834Z] === OTE Multi Bot run ===
+[2026-06-15T12:18:01.837Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:18:01.884Z] [MBT] Close: 66182 | High: 66259.7 | Low: 66071.5
+[2026-06-15T12:18:01.884Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:18:01.884Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:18:01.884Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:21:02.323Z] === OTE Multi Bot run ===
+[2026-06-15T12:21:02.325Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:21:02.374Z] [MBT] Close: 66164.9 | High: 66294.3 | Low: 66071.5
+[2026-06-15T12:21:02.374Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:21:02.374Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:21:02.375Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:24:05.410Z] === OTE Multi Bot run ===
+[2026-06-15T12:24:05.413Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:24:05.461Z] [MBT] Close: 66231.9 | High: 66294.3 | Low: 66071.5
+[2026-06-15T12:24:05.461Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:24:05.461Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:24:05.461Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:24:05.410Z] === OTE Multi Bot run ===
+[2026-06-15T12:24:05.413Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:24:05.461Z] [MBT] Close: 66231.9 | High: 66294.3 | Low: 66071.5
+[2026-06-15T12:24:05.461Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:24:05.461Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:24:05.461Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:27:02.023Z] === OTE Multi Bot run ===
+[2026-06-15T12:27:02.027Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:27:02.214Z] [MBT] Close: 66250 | High: 66294.3 | Low: 66071.5
+[2026-06-15T12:27:02.214Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:27:02.214Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:27:02.214Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:33:35.088Z] === OTE Multi Bot run ===
+[2026-06-15T12:33:35.090Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:33:35.140Z] [MBT] Close: 66222.4 | High: 66294.3 | Low: 66071.5
+[2026-06-15T12:33:35.141Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:33:35.141Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:33:35.141Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:33:35.088Z] === OTE Multi Bot run ===
+[2026-06-15T12:33:35.090Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:33:35.140Z] [MBT] Close: 66222.4 | High: 66294.3 | Low: 66071.5
+[2026-06-15T12:33:35.141Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:33:35.141Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:33:35.141Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:36:04.492Z] === OTE Multi Bot run ===
+[2026-06-15T12:36:04.495Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:36:04.535Z] [MBT] Close: 66227.8 | High: 66294.3 | Low: 66141.2
+[2026-06-15T12:36:04.536Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:36:04.536Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:36:04.536Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:36:04.492Z] === OTE Multi Bot run ===
+[2026-06-15T12:36:04.495Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:36:04.535Z] [MBT] Close: 66227.8 | High: 66294.3 | Low: 66141.2
+[2026-06-15T12:36:04.536Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:36:04.536Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:36:04.536Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:39:02.189Z] === OTE Multi Bot run ===
+[2026-06-15T12:39:02.193Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:39:02.239Z] [MBT] Close: 66265.4 | High: 66294.3 | Low: 66141.2
+[2026-06-15T12:39:02.240Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:39:02.240Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:39:02.240Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:42:06.475Z] === OTE Multi Bot run ===
+[2026-06-15T12:42:06.478Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:42:06.668Z] [MBT] Close: 66318.8 | High: 66347.8 | Low: 66141.2
+[2026-06-15T12:42:06.668Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:42:06.668Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:42:06.668Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:45:02.994Z] === OTE Multi Bot run ===
+[2026-06-15T12:45:02.998Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:45:03.189Z] [MBT] Close: 66436.8 | High: 66436.8 | Low: 66141.2
+[2026-06-15T12:45:03.189Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:45:03.190Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:45:03.190Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:45:02.994Z] === OTE Multi Bot run ===
+[2026-06-15T12:45:02.998Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:45:03.189Z] [MBT] Close: 66436.8 | High: 66436.8 | Low: 66141.2
+[2026-06-15T12:45:03.189Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:45:03.190Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:45:03.190Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:48:06.037Z] === OTE Multi Bot run ===
+[2026-06-15T12:48:06.040Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:48:06.231Z] [MBT] Close: 66437.8 | High: 66477.6 | Low: 66159
+[2026-06-15T12:48:06.231Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:48:06.232Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:48:06.232Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:48:06.037Z] === OTE Multi Bot run ===
+[2026-06-15T12:48:06.040Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:48:06.231Z] [MBT] Close: 66437.8 | High: 66477.6 | Low: 66159
+[2026-06-15T12:48:06.231Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:48:06.232Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:48:06.232Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:51:02.504Z] === OTE Multi Bot run ===
+[2026-06-15T12:51:02.514Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:51:02.580Z] [MBT] Close: 66515.1 | High: 66520 | Low: 66159
+[2026-06-15T12:51:02.581Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:51:02.581Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:51:02.581Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:51:02.504Z] === OTE Multi Bot run ===
+[2026-06-15T12:51:02.514Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:51:02.580Z] [MBT] Close: 66515.1 | High: 66520 | Low: 66159
+[2026-06-15T12:51:02.581Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:51:02.581Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:51:02.581Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:54:04.693Z] === OTE Multi Bot run ===
+[2026-06-15T12:54:04.693Z] === OTE Multi Bot run ===
+[2026-06-15T12:54:04.696Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:54:04.696Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:54:04.740Z] [MBT] Close: 66520 | High: 66520 | Low: 66159
+[2026-06-15T12:54:04.740Z] [MBT] Close: 66520 | High: 66520 | Low: 66159
+[2026-06-15T12:54:04.740Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:54:04.740Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:54:04.741Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:54:04.741Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:54:04.741Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:54:04.741Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:57:01.944Z] === OTE Multi Bot run ===
+[2026-06-15T12:57:01.949Z] PNL: $0 | Signals: 0/2
+[2026-06-15T12:57:01.996Z] [MBT] Close: 66530 | High: 66578.1 | Low: 66159
+[2026-06-15T12:57:01.997Z] [MBT] No RR≥2.5 signal
+[2026-06-15T12:57:01.997Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T12:57:01.997Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:03:36.602Z] === OTE Multi Bot run ===
+[2026-06-15T13:03:36.606Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:03:36.652Z] [MBT] Close: 66466.7 | High: 66580.7 | Low: 66202.6
+[2026-06-15T13:03:36.652Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:03:36.652Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:03:36.652Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:06:05.812Z] === OTE Multi Bot run ===
+[2026-06-15T13:06:05.812Z] === OTE Multi Bot run ===
+[2026-06-15T13:06:05.814Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:06:05.814Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:06:05.998Z] [MBT] Close: 66520.9 | High: 66580.7 | Low: 66249.9
+[2026-06-15T13:06:05.998Z] [MBT] Close: 66520.9 | High: 66580.7 | Low: 66249.9
+[2026-06-15T13:06:05.998Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:06:05.998Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:06:05.998Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:06:05.998Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:06:05.998Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:06:05.998Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:09:04.928Z] === OTE Multi Bot run ===
+[2026-06-15T13:09:04.928Z] === OTE Multi Bot run ===
+[2026-06-15T13:09:04.930Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:09:04.930Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:09:04.979Z] [MBT] Close: 66647.8 | High: 66651.6 | Low: 66285.2
+[2026-06-15T13:09:04.979Z] [MBT] Close: 66647.8 | High: 66651.6 | Low: 66285.2
+[2026-06-15T13:09:04.979Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:09:04.980Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:09:04.980Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:09:04.979Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:09:04.980Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:09:04.980Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:12:01.996Z] === OTE Multi Bot run ===
+[2026-06-15T13:12:01.999Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:12:02.088Z] [MBT] Close: 66557.6 | High: 66651.6 | Low: 66394.4
+[2026-06-15T13:12:02.089Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:12:02.089Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:12:02.089Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:15:02.388Z] === OTE Multi Bot run ===
+[2026-06-15T13:15:02.393Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:15:02.448Z] [MBT] Close: 66574.4 | High: 66651.6 | Low: 66394.4
+[2026-06-15T13:15:02.448Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:15:02.448Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:15:02.448Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:18:02.008Z] === OTE Multi Bot run ===
+[2026-06-15T13:18:02.010Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:18:02.082Z] [MBT] Close: 66706 | High: 66738 | Low: 66444
+[2026-06-15T13:18:02.083Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:18:02.083Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:18:02.083Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:18:02.008Z] === OTE Multi Bot run ===
+[2026-06-15T13:18:02.010Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:18:02.082Z] [MBT] Close: 66706 | High: 66738 | Low: 66444
+[2026-06-15T13:18:02.083Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:18:02.083Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:18:02.083Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:21:06.004Z] === OTE Multi Bot run ===
+[2026-06-15T13:21:06.004Z] === OTE Multi Bot run ===
+[2026-06-15T13:21:06.006Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:21:06.006Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:21:06.074Z] [MBT] Close: 66815.4 | High: 66815.4 | Low: 66444
+[2026-06-15T13:21:06.074Z] [MBT] Close: 66815.4 | High: 66815.4 | Low: 66444
+[2026-06-15T13:21:06.074Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:21:06.074Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:21:06.074Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:21:06.074Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:21:06.075Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:21:06.075Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:24:05.902Z] === OTE Multi Bot run ===
+[2026-06-15T13:24:05.902Z] === OTE Multi Bot run ===
+[2026-06-15T13:24:05.904Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:24:05.904Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:24:06.101Z] [MBT] Close: 66836.9 | High: 66845 | Low: 66444
+[2026-06-15T13:24:06.101Z] [MBT] Close: 66836.9 | High: 66845 | Low: 66444
+[2026-06-15T13:24:06.101Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:24:06.101Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:24:06.101Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:24:06.101Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:24:06.101Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:24:06.101Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:27:02.299Z] === OTE Multi Bot run ===
+[2026-06-15T13:27:02.301Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:27:02.359Z] [MBT] Close: 66814 | High: 66900 | Low: 66444
+[2026-06-15T13:27:02.360Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:27:02.360Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:27:02.360Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:33:37.124Z] === OTE Multi Bot run ===
+[2026-06-15T13:33:37.128Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:33:37.179Z] [MBT] Close: 66781.4 | High: 66900 | Low: 66473.1
+[2026-06-15T13:33:37.180Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:33:37.180Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:33:37.180Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:36:04.478Z] === OTE Multi Bot run ===
+[2026-06-15T13:36:04.481Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:36:04.530Z] [MBT] Close: 66761.3 | High: 66900 | Low: 66534.1
+[2026-06-15T13:36:04.530Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:36:04.530Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:36:04.530Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:39:02.074Z] === OTE Multi Bot run ===
+[2026-06-15T13:39:02.076Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:39:02.261Z] [MBT] Close: 66712.2 | High: 66900 | Low: 66551.4
+[2026-06-15T13:39:02.262Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:39:02.262Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:39:02.262Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:42:01.806Z] === OTE Multi Bot run ===
+[2026-06-15T13:42:01.809Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:42:01.871Z] [MBT] Close: 66480.7 | High: 66900 | Low: 66438.7
+[2026-06-15T13:42:01.872Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:42:01.872Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:42:01.872Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:42:01.806Z] === OTE Multi Bot run ===
+[2026-06-15T13:42:01.809Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:42:01.871Z] [MBT] Close: 66480.7 | High: 66900 | Low: 66438.7
+[2026-06-15T13:42:01.872Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:42:01.872Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:42:01.872Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:45:02.409Z] === OTE Multi Bot run ===
+[2026-06-15T13:45:02.414Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:45:02.470Z] [MBT] Close: 66520.3 | High: 66900 | Low: 66438.7
+[2026-06-15T13:45:02.471Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:45:02.472Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:45:02.472Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:45:02Z] === OTE Multi Bot run ===
+[2026-06-15T13:45:02Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:45:02Z] [MBT] Close: 66520.3 | High: 66900 | Low: 66438.7 | No RR≥2.5 signal
+[2026-06-15T13:45:02Z] [MNQ] Polygon.io API key not set
+[2026-06-15T13:45:02Z] [MGC] Polygon.io API key not set
+[2026-06-15T13:48:02.020Z] === OTE Multi Bot run ===
+[2026-06-15T13:48:02.023Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:48:02.100Z] [MBT] Close: 66460.2 | High: 66900 | Low: 66438.7
+[2026-06-15T13:48:02.100Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:48:02.101Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:48:02.101Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:48:02.020Z] === OTE Multi Bot run ===
+[2026-06-15T13:48:02.023Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:48:02.100Z] [MBT] Close: 66460.2 | High: 66900 | Low: 66438.7
+[2026-06-15T13:48:02.100Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:48:02.101Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:48:02.101Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:51:02.248Z] === OTE Multi Bot run ===
+[2026-06-15T13:51:02.250Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:51:02.295Z] [MBT] Close: 66620.1 | High: 66900 | Low: 66438.7
+[2026-06-15T13:51:02.296Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:51:02.296Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:51:02.296Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:54:05.888Z] === OTE Multi Bot run ===
+[2026-06-15T13:54:05.890Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:54:05.937Z] [MBT] Close: 66486.9 | High: 66900 | Low: 66438.7
+[2026-06-15T13:54:05.938Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:54:05.938Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:54:05.938Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:57:02.111Z] === OTE Multi Bot run ===
+[2026-06-15T13:57:02.111Z] === OTE Multi Bot run ===
+[2026-06-15T13:57:02.113Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:57:02.113Z] PNL: $0 | Signals: 0/2
+[2026-06-15T13:57:02.157Z] [MBT] Close: 66413.3 | High: 66848.1 | Low: 66369.4
+[2026-06-15T13:57:02.157Z] [MBT] Close: 66413.3 | High: 66848.1 | Low: 66369.4
+[2026-06-15T13:57:02.157Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:57:02.158Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:57:02.158Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:57:02.157Z] [MBT] No RR≥2.5 signal
+[2026-06-15T13:57:02.158Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T13:57:02.158Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:00:05.149Z] === OTE Multi Bot run ===
+[2026-06-15T14:00:05.149Z] === OTE Multi Bot run ===
+[2026-06-15T14:00:05.152Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:00:05.152Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:00:05.194Z] [MBT] Close: 66405.5 | High: 66831.9 | Low: 66366.4
+[2026-06-15T14:00:05.194Z] [MBT] Close: 66405.5 | High: 66831.9 | Low: 66366.4
+[2026-06-15T14:00:05.195Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:00:05.195Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:00:05.195Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:00:05.195Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:00:05.195Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:00:05.195Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+Exit: 0
+[2026-06-15T14:01:32.706Z] === OTE Multi Bot run ===
+[2026-06-15T14:01:32.706Z] === OTE Multi Bot run ===
+[2026-06-15T14:01:32.707Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:01:32.707Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:01:32.753Z] [MBT] Close: 66339.1 | High: 66831.9 | Low: 66300.1
+[2026-06-15T14:01:32.753Z] [MBT] Close: 66339.1 | High: 66831.9 | Low: 66300.1
+[2026-06-15T14:01:32.753Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:01:32.753Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:01:32.753Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:01:32.753Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:01:32.753Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:01:32.753Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:03:36.446Z] === OTE Multi Bot run ===
+[2026-06-15T14:03:36.449Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:03:36.647Z] [MBT] Close: 66312.9 | High: 66831.9 | Low: 66249.6
+[2026-06-15T14:03:36.647Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:03:36.648Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:03:36.648Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:03:36.446Z] === OTE Multi Bot run ===
+[2026-06-15T14:03:36.449Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:03:36.647Z] [MBT] Close: 66312.9 | High: 66831.9 | Low: 66249.6
+[2026-06-15T14:03:36.647Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:03:36.648Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:03:36.648Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:06:01.724Z] === OTE Multi Bot run ===
+[2026-06-15T14:06:01.732Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:06:01.942Z] [MBT] Close: 66383.6 | High: 66765.3 | Low: 66249.6
+[2026-06-15T14:06:01.942Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:06:01.943Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:06:01.943Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:06:01.724Z] === OTE Multi Bot run ===
+[2026-06-15T14:06:01.732Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:06:01.942Z] [MBT] Close: 66383.6 | High: 66765.3 | Low: 66249.6
+[2026-06-15T14:06:01.942Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:06:01.943Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:06:01.943Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:09:05.209Z] === OTE Multi Bot run ===
+[2026-06-15T14:09:05.211Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:09:05.261Z] [MBT] Close: 66323.7 | High: 66620.1 | Low: 66249.6
+[2026-06-15T14:09:05.261Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:09:05.261Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:09:05.261Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:12:02.188Z] === OTE Multi Bot run ===
+[2026-06-15T14:12:02.192Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:12:02.242Z] [MBT] Close: 66327 | High: 66620.1 | Low: 66249.6
+[2026-06-15T14:12:02.242Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:12:02.242Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:12:02.242Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:12:02.188Z] === OTE Multi Bot run ===
+[2026-06-15T14:12:02.192Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:12:02.242Z] [MBT] Close: 66327 | High: 66620.1 | Low: 66249.6 | No RR≥2.5 signal
+[2026-06-15T14:12:02.242Z] [MNQ] Polygon.io API key not set
+[2026-06-15T14:12:02.242Z] [MGC] Polygon.io API key not set
+[2026-06-15T14:15:02.280Z] === OTE Multi Bot run ===
+[2026-06-15T14:15:02.283Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:15:02.331Z] [MBT] Close: 66388.6 | High: 66620.1 | Low: 66249.6
+[2026-06-15T14:15:02.331Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:15:02.332Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:15:02.332Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:18:03.947Z] === OTE Multi Bot run ===
+[2026-06-15T14:18:03.949Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:18:04.132Z] [MBT] Close: 66461.4 | High: 66620.1 | Low: 66249.6
+[2026-06-15T14:18:04.132Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:18:04.133Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:18:04.133Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:21:06.718Z] === OTE Multi Bot run ===
+[2026-06-15T14:21:06.718Z] === OTE Multi Bot run ===
+[2026-06-15T14:21:06.719Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:21:06.719Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:21:06.859Z] [MBT] Close: 66441.6 | High: 66595.2 | Low: 66249.6
+[2026-06-15T14:21:06.859Z] [MBT] Close: 66441.6 | High: 66595.2 | Low: 66249.6
+[2026-06-15T14:21:06.860Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:21:06.860Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:21:06.860Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:21:06.860Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:21:06.860Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:21:06.860Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:24:05.442Z] === OTE Multi Bot run ===
+[2026-06-15T14:24:05.445Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:24:05.490Z] [MBT] Close: 66447.4 | High: 66522.4 | Low: 66249.6
+[2026-06-15T14:24:05.490Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:24:05.490Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:24:05.491Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:27:05.325Z] === OTE Multi Bot run ===
+[2026-06-15T14:27:05.328Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:27:05.385Z] [MBT] Close: 66470 | High: 66522.4 | Low: 66249.6
+[2026-06-15T14:27:05.385Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:27:05.386Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:27:05.386Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:27:05.325Z] === OTE Multi Bot run ===
+[2026-06-15T14:27:05.328Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:27:05.385Z] [MBT] Close: 66470 | High: 66522.4 | Low: 66249.6
+[2026-06-15T14:27:05.385Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:27:05.386Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:27:05.386Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+
+[2026-06-15T14:31:32.301Z] === OTE Multi Bot run ===
+[2026-06-15T14:31:32.304Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:31:32.356Z] [MBT] Close: 66492 | High: 66522.4 | Low: 66249.6
+[2026-06-15T14:31:32.357Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:31:32.357Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:31:32.357Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:33:34.898Z] === OTE Multi Bot run ===
+[2026-06-15T14:33:34.900Z] PNL: $0 | Signals: 0/2
+[2026-06-15T14:33:34.947Z] [MBT] Close: 66507.3 | High: 66522.6 | Low: 66261.3
+[2026-06-15T14:33:34.947Z] [MBT] No RR≥2.5 signal
+[2026-06-15T14:33:34.947Z] [MNQ] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:33:34.948Z] [MGC] Polygon.io API key not set in config.json (global.polygon_api_key)
+[2026-06-15T14:33:34Z] RUN | PNL: $0 | Signals: 0/2 | MBT close=66507.3 | No RR≥2.5 signal | MNQ/MGC: Polygon API key missing
