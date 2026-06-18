@@ -18856,3 +18856,155 @@ Cycle #969 | 01:55:17 UTC
 ✓ #969 p̂=0.448, Signal=False
 ⏰ Next: 01:56:40
 ---
+=== Thu Jun 18 01:59:27 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 969/50
+
+============================================================
+Cycle #970 | 01:59:27 UTC
+[BTC] 1440 candles
+[FILTER] ATR=90.16 (avg=89.97, threshold=71.97)
+[FILTER] Vol=2.7140 (avg=9.7806, threshold=0.9781)
+[BTC] Last streaks: [1, 2, 3, 1, 2]
+[MARKOV] Filtered=871 candles, 53 states
+[MARKOV] State=2312, last_dir=UP, p̂=0.500 (n=30)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.500, q=0.495, Δ=0.005 → p̂ 0.500 < 0.55
+
+✓ #970 p̂=0.500, Signal=False
+⏰ Next: 02:00:50
+---
+=== Thu Jun 18 02:00:50 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 970/50
+
+============================================================
+Cycle #971 | 02:00:50 UTC
+[BTC] 1440 candles
+[FILTER] ATR=86.93 (avg=90.19, threshold=72.15)
+[FILTER] Vol=0.7619 (avg=9.6936, threshold=0.9694)
+[BTC] Last streaks: [2, 3, 1, 2, 3]
+[MARKOV] Filtered=870 candles, 53 states
+[MARKOV] State=3123, last_dir=UP, p̂=0.588 (n=17)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/usr/local/lib/python3.11/dist-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/usr/local/lib/python3.11/dist-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "/usr/lib/python3.11/contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.11/dist-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/node/.openclaw/workspace/lgtm-trade/btc_5m_bot.py", line 574, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/node/.openclaw/workspace/lgtm-trade/btc_5m_bot.py", line 564, in main
+    result = await run_trading_cycle()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/node/.openclaw/workspace/lgtm-trade/btc_5m_bot.py", line 433, in run_trading_cycle
+    market = await fetch_polymarket_market(next_window)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/node/.openclaw/workspace/lgtm-trade/btc_5m_bot.py", line 324, in fetch_polymarket_market
+    resp = await http.get(f"{GAMMA_API}/markets", params={"slug": slug})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_client.py", line 1768, in get
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.11/contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.11/dist-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+---
+=== Thu Jun 18 02:02:43 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 970/50
+
+============================================================
+Cycle #971 | 02:02:43 UTC
+[BTC] 1440 candles
+[FILTER] ATR=88.05 (avg=90.24, threshold=72.20)
+[FILTER] Vol=1.9438 (avg=9.7527, threshold=0.9753)
+[BTC] Last streaks: [2, 3, 1, 2, 3]
+[MARKOV] Filtered=869 candles, 53 states
+[MARKOV] State=3123, last_dir=UP, p̂=0.588 (n=17)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.588, q=0.495, Δ=0.093 → OK
+
+✓ #971 p̂=0.588, Signal=True
+⏰ Next: 02:04:07
+---
+=== Thu Jun 18 02:04:07 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 971/50
+
+============================================================
+Cycle #972 | 02:04:07 UTC
+[BTC] 1440 candles
+[FILTER] ATR=89.14 (avg=90.30, threshold=72.24)
+[FILTER] Vol=2.3944 (avg=9.7753, threshold=0.9775)
+[BTC] Last streaks: [2, 3, 1, 2, 3]
+[MARKOV] Filtered=867 candles, 53 states
+[MARKOV] State=3123, last_dir=UP, p̂=0.588 (n=17)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.588, q=0.495, Δ=0.093 → OK
+
+✓ #972 p̂=0.588, Signal=True
+⏰ Next: 02:05:30
+---
