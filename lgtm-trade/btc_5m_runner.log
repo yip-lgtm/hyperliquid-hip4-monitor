@@ -73275,3 +73275,823 @@ Cycle #3816 | 20:03:45 UTC
 ✓ #3816 p̂=0.478, Signal=False
 ⏰ Next: 20:05:08
 ---
+=== Sat Jun 20 20:05:08 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3816/50
+
+============================================================
+Cycle #3817 | 20:05:08 UTC
+[BTC] 1440 candles
+[FILTER] ATR=50.68 (avg=59.09, threshold=47.27)
+[FILTER] Vol=0.0023 (avg=2.9508, threshold=0.2951)
+[BTC] Last streaks: [1, 2, 1, 1, 1]
+[MARKOV] Filtered=1412 candles, 62 states
+[MARKOV] State=2111, last_dir=UP, p̂=0.596 (n=47)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.596, q=0.495, Δ=0.101 → Low Vol (0.0023 < 0.2951)
+
+✓ #3817 p̂=0.596, Signal=False
+⏰ Next: 20:06:32
+---
+=== Sat Jun 20 20:06:32 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3817/50
+
+============================================================
+Cycle #3818 | 20:06:32 UTC
+[BTC] 1440 candles
+[FILTER] ATR=52.88 (avg=59.20, threshold=47.36)
+[FILTER] Vol=0.3513 (avg=2.9683, threshold=0.2968)
+[BTC] Last streaks: [1, 2, 1, 1, 1]
+[MARKOV] Filtered=1410 candles, 62 states
+[MARKOV] State=2111, last_dir=UP, p̂=0.596 (n=47)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.596, q=0.495, Δ=0.101 → OK
+
+✓ #3818 p̂=0.596, Signal=True
+⏰ Next: 20:07:55
+---
+=== Sat Jun 20 20:07:55 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3818/50
+
+============================================================
+Cycle #3819 | 20:07:55 UTC
+[BTC] 1440 candles
+[FILTER] ATR=53.61 (avg=59.24, threshold=47.39)
+[FILTER] Vol=1.8353 (avg=3.0425, threshold=0.3042)
+[BTC] Last streaks: [1, 2, 1, 1, 1]
+[MARKOV] Filtered=1409 candles, 62 states
+[MARKOV] State=2111, last_dir=UP, p̂=0.596 (n=47)
+[POLY] YES=0.495, NO=0.505
+[SIGNAL] UP, p̂=0.596, q=0.505, Δ=0.091 → OK
+
+✓ #3819 p̂=0.596, Signal=True
+⏰ Next: 20:09:19
+---
+=== Sat Jun 20 20:09:19 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3819/50
+
+============================================================
+Cycle #3820 | 20:09:19 UTC
+[BTC] 1440 candles
+[FILTER] ATR=53.61 (avg=59.24, threshold=47.39)
+[FILTER] Vol=2.1377 (avg=3.0576, threshold=0.3058)
+[BTC] Last streaks: [1, 2, 1, 1, 1]
+[MARKOV] Filtered=1409 candles, 62 states
+[MARKOV] State=2111, last_dir=UP, p̂=0.596 (n=47)
+[POLY] YES=0.495, NO=0.505
+[SIGNAL] UP, p̂=0.596, q=0.505, Δ=0.091 → OK
+
+✓ #3820 p̂=0.596, Signal=True
+⏰ Next: 20:10:42
+---
+=== Sat Jun 20 20:10:42 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3820/50
+
+============================================================
+Cycle #3821 | 20:10:42 UTC
+[BTC] 1440 candles
+[FILTER] ATR=48.70 (avg=57.48, threshold=45.98)
+[FILTER] Vol=0.1981 (avg=3.0340, threshold=0.3034)
+[BTC] Last streaks: [2, 1, 1, 1, 2]
+[MARKOV] Filtered=1416 candles, 62 states
+[MARKOV] State=1112, last_dir=UP, p̂=0.494 (n=89)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.494, q=0.495, Δ=-0.001 → Low Vol (0.1981 < 0.3034)
+
+✓ #3821 p̂=0.494, Signal=False
+⏰ Next: 20:12:06
+---
+=== Sat Jun 20 20:12:06 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3821/50
+
+============================================================
+Cycle #3822 | 20:12:06 UTC
+[BTC] 1440 candles
+[FILTER] ATR=48.70 (avg=57.48, threshold=45.98)
+[FILTER] Vol=0.3522 (avg=3.0417, threshold=0.3042)
+[BTC] Last streaks: [2, 1, 1, 1, 2]
+[MARKOV] Filtered=1416 candles, 62 states
+[MARKOV] State=1112, last_dir=UP, p̂=0.494 (n=89)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.494, q=0.495, Δ=-0.001 → p̂ 0.494 < 0.55
+
+✓ #3822 p̂=0.494, Signal=False
+⏰ Next: 20:13:29
+---
+=== Sat Jun 20 20:13:29 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3822/50
+
+============================================================
+Cycle #3823 | 20:13:29 UTC
+[BTC] 1440 candles
+[FILTER] ATR=49.13 (avg=57.50, threshold=46.00)
+[FILTER] Vol=0.7674 (avg=3.0625, threshold=0.3062)
+[BTC] Last streaks: [2, 1, 1, 1, 2]
+[MARKOV] Filtered=1416 candles, 62 states
+[MARKOV] State=1112, last_dir=UP, p̂=0.494 (n=89)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.494, q=0.495, Δ=-0.001 → p̂ 0.494 < 0.55
+
+✓ #3823 p̂=0.494, Signal=False
+⏰ Next: 20:14:52
+---
+=== Sat Jun 20 20:14:52 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3823/50
+
+============================================================
+Cycle #3824 | 20:14:52 UTC
+[BTC] 1440 candles
+[FILTER] ATR=49.13 (avg=57.50, threshold=46.00)
+[FILTER] Vol=0.8665 (avg=3.0674, threshold=0.3067)
+[BTC] Last streaks: [2, 1, 1, 1, 2]
+[MARKOV] Filtered=1416 candles, 62 states
+[MARKOV] State=1112, last_dir=UP, p̂=0.494 (n=89)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.494, q=0.495, Δ=-0.001 → p̂ 0.494 < 0.55
+
+✓ #3824 p̂=0.494, Signal=False
+⏰ Next: 20:16:16
+---
+=== Sat Jun 20 20:16:16 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3824/50
+
+============================================================
+Cycle #3825 | 20:16:16 UTC
+[BTC] 1440 candles
+[FILTER] ATR=44.74 (avg=55.80, threshold=44.64)
+[FILTER] Vol=1.2628 (avg=3.0678, threshold=0.3068)
+[BTC] Last streaks: [1, 1, 1, 2, 3]
+[MARKOV] Filtered=1417 candles, 62 states
+[MARKOV] State=1123, last_dir=UP, p̂=0.622 (n=90)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.622, q=0.495, Δ=0.127 → OK
+
+✓ #3825 p̂=0.622, Signal=True
+⏰ Next: 20:17:39
+---
+=== Sat Jun 20 20:17:39 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3825/50
+
+============================================================
+Cycle #3826 | 20:17:39 UTC
+[BTC] 1440 candles
+[FILTER] ATR=44.86 (avg=55.81, threshold=44.64)
+[FILTER] Vol=1.3587 (avg=3.0726, threshold=0.3073)
+[BTC] Last streaks: [1, 1, 1, 2, 3]
+[MARKOV] Filtered=1417 candles, 62 states
+[MARKOV] State=1123, last_dir=UP, p̂=0.622 (n=90)
+[POLY] YES=0.485, NO=0.515
+[SIGNAL] UP, p̂=0.622, q=0.515, Δ=0.107 → OK
+
+✓ #3826 p̂=0.622, Signal=True
+⏰ Next: 20:19:03
+---
+=== Sat Jun 20 20:19:03 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3826/50
+
+============================================================
+Cycle #3827 | 20:19:03 UTC
+[BTC] 1440 candles
+[FILTER] ATR=45.33 (avg=55.83, threshold=44.66)
+[FILTER] Vol=2.3598 (avg=3.1227, threshold=0.3123)
+[BTC] Last streaks: [1, 1, 1, 2, 1]
+[MARKOV] Filtered=1417 candles, 62 states
+[MARKOV] State=1121, last_dir=DOWN, p̂=0.483 (n=89)
+[POLY] YES=0.485, NO=0.515
+[SIGNAL] DOWN, p̂=0.483, q=0.485, Δ=-0.002 → p̂ 0.483 < 0.55
+
+✓ #3827 p̂=0.483, Signal=False
+⏰ Next: 20:20:26
+---
+=== Sat Jun 20 20:20:26 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3827/50
+
+============================================================
+Cycle #3828 | 20:20:26 UTC
+[BTC] 1440 candles
+[FILTER] ATR=44.14 (avg=54.14, threshold=43.31)
+[FILTER] Vol=0.6718 (avg=2.8761, threshold=0.2876)
+[BTC] Last streaks: [1, 1, 2, 3, 1]
+[MARKOV] Filtered=1420 candles, 62 states
+[MARKOV] State=1231, last_dir=DOWN, p̂=0.613 (n=93)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.613, q=0.505, Δ=0.108 → OK
+
+✓ #3828 p̂=0.613, Signal=True
+⏰ Next: 20:21:50
+---
+=== Sat Jun 20 20:21:50 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3828/50
+
+============================================================
+Cycle #3829 | 20:21:50 UTC
+[BTC] 1440 candles
+[FILTER] ATR=44.39 (avg=54.15, threshold=43.32)
+[FILTER] Vol=1.7643 (avg=2.9308, threshold=0.2931)
+[BTC] Last streaks: [1, 1, 2, 3, 1]
+[MARKOV] Filtered=1420 candles, 62 states
+[MARKOV] State=1231, last_dir=DOWN, p̂=0.613 (n=93)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.613, q=0.505, Δ=0.108 → OK
+
+✓ #3829 p̂=0.613, Signal=True
+⏰ Next: 20:23:13
+---
+=== Sat Jun 20 20:23:13 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3829/50
+
+============================================================
+Cycle #3830 | 20:23:14 UTC
+[BTC] 1440 candles
+[FILTER] ATR=44.39 (avg=54.15, threshold=43.32)
+[FILTER] Vol=2.2646 (avg=2.9558, threshold=0.2956)
+[BTC] Last streaks: [1, 1, 2, 3, 1]
+[MARKOV] Filtered=1420 candles, 62 states
+[MARKOV] State=1231, last_dir=DOWN, p̂=0.613 (n=93)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.613, q=0.505, Δ=0.108 → OK
+
+✓ #3830 p̂=0.613, Signal=True
+⏰ Next: 20:24:37
+---
+=== Sat Jun 20 20:24:37 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3830/50
+
+============================================================
+Cycle #3831 | 20:24:37 UTC
+[BTC] 1440 candles
+[FILTER] ATR=44.39 (avg=54.15, threshold=43.32)
+[FILTER] Vol=2.7120 (avg=2.9782, threshold=0.2978)
+[BTC] Last streaks: [1, 1, 2, 3, 1]
+[MARKOV] Filtered=1420 candles, 62 states
+[MARKOV] State=1231, last_dir=DOWN, p̂=0.613 (n=93)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.613, q=0.505, Δ=0.108 → OK
+
+✓ #3831 p̂=0.613, Signal=True
+⏰ Next: 20:26:01
+---
+=== Sat Jun 20 20:26:01 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3831/50
+
+============================================================
+Cycle #3832 | 20:26:01 UTC
+[BTC] 1440 candles
+[FILTER] ATR=40.37 (avg=53.12, threshold=42.49)
+[FILTER] Vol=0.0267 (avg=2.8749, threshold=0.2875)
+[BTC] Last streaks: [1, 2, 3, 1, 1]
+[MARKOV] Filtered=1422 candles, 62 states
+[MARKOV] State=2311, last_dir=UP, p̂=0.447 (n=47)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.447, q=0.495, Δ=-0.048 → Low ATR (40.37 < 42.49)
+
+✓ #3832 p̂=0.447, Signal=False
+⏰ Next: 20:27:24
+---
+=== Sat Jun 20 20:27:24 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3832/50
+
+============================================================
+Cycle #3833 | 20:27:24 UTC
+[BTC] 1440 candles
+[FILTER] ATR=42.67 (avg=53.23, threshold=42.58)
+[FILTER] Vol=5.6578 (avg=3.1565, threshold=0.3156)
+[BTC] Last streaks: [1, 2, 3, 1, 2]
+[MARKOV] Filtered=1421 candles, 62 states
+[MARKOV] State=2312, last_dir=DOWN, p̂=0.435 (n=46)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.435, q=0.505, Δ=-0.070 → p̂ 0.435 < 0.55
+
+✓ #3833 p̂=0.435, Signal=False
+⏰ Next: 20:28:47
+---
+=== Sat Jun 20 20:28:48 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3833/50
+
+============================================================
+Cycle #3834 | 20:28:48 UTC
+[BTC] 1440 candles
+[FILTER] ATR=43.43 (avg=53.27, threshold=42.61)
+[FILTER] Vol=7.4132 (avg=3.2443, threshold=0.3244)
+[BTC] Last streaks: [1, 2, 3, 1, 2]
+[MARKOV] Filtered=1421 candles, 62 states
+[MARKOV] State=2312, last_dir=DOWN, p̂=0.435 (n=46)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.435, q=0.505, Δ=-0.070 → p̂ 0.435 < 0.55
+
+✓ #3834 p̂=0.435, Signal=False
+⏰ Next: 20:30:11
+---
+=== Sat Jun 20 20:30:11 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3834/50
+
+============================================================
+Cycle #3835 | 20:30:11 UTC
+[BTC] 1440 candles
+[FILTER] ATR=41.61 (avg=52.52, threshold=42.01)
+[FILTER] Vol=0.0468 (avg=3.1305, threshold=0.3130)
+[BTC] Last streaks: [2, 3, 1, 2, 3]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=3123, last_dir=DOWN, p̂=0.476 (n=21)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.476, q=0.505, Δ=-0.029 → Low ATR (41.61 < 42.01)
+
+✓ #3835 p̂=0.476, Signal=False
+⏰ Next: 20:31:34
+---
+=== Sat Jun 20 20:31:34 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3835/50
+
+============================================================
+Cycle #3836 | 20:31:34 UTC
+[BTC] 1440 candles
+[FILTER] ATR=42.84 (avg=52.58, threshold=42.06)
+[FILTER] Vol=0.3726 (avg=3.1468, threshold=0.3147)
+[BTC] Last streaks: [2, 3, 1, 2, 1]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=3121, last_dir=UP, p̂=0.560 (n=25)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.560, q=0.495, Δ=0.065 → OK
+
+✓ #3836 p̂=0.560, Signal=True
+⏰ Next: 20:32:58
+---
+=== Sat Jun 20 20:32:58 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3836/50
+
+============================================================
+Cycle #3837 | 20:32:58 UTC
+[BTC] 1440 candles
+[FILTER] ATR=43.26 (avg=52.60, threshold=42.08)
+[FILTER] Vol=0.5964 (avg=3.1579, threshold=0.3158)
+[BTC] Last streaks: [2, 3, 1, 2, 3]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=3123, last_dir=DOWN, p̂=0.476 (n=21)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.476, q=0.505, Δ=-0.029 → p̂ 0.476 < 0.55
+
+✓ #3837 p̂=0.476, Signal=False
+⏰ Next: 20:34:21
+---
+=== Sat Jun 20 20:34:21 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3837/50
+
+============================================================
+Cycle #3838 | 20:34:21 UTC
+[BTC] 1440 candles
+[FILTER] ATR=46.68 (avg=52.77, threshold=42.22)
+[FILTER] Vol=3.0671 (avg=3.2815, threshold=0.3281)
+[BTC] Last streaks: [2, 3, 1, 2, 3]
+[MARKOV] Filtered=1422 candles, 62 states
+[MARKOV] State=3123, last_dir=DOWN, p̂=0.476 (n=21)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.476, q=0.505, Δ=-0.029 → p̂ 0.476 < 0.55
+
+✓ #3838 p̂=0.476, Signal=False
+⏰ Next: 20:35:44
+---
+=== Sat Jun 20 20:35:45 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3838/50
+
+============================================================
+Cycle #3839 | 20:35:45 UTC
+[BTC] 1440 candles
+[FILTER] ATR=41.29 (avg=52.18, threshold=41.74)
+[FILTER] Vol=0.0519 (avg=3.1490, threshold=0.3149)
+[BTC] Last streaks: [3, 1, 2, 3, 4]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=1234, last_dir=DOWN, p̂=0.481 (n=79)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.481, q=0.505, Δ=-0.024 → Low ATR (41.29 < 41.74)
+
+✓ #3839 p̂=0.481, Signal=False
+⏰ Next: 20:37:08
+---
+=== Sat Jun 20 20:37:08 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3839/50
+
+============================================================
+Cycle #3840 | 20:37:08 UTC
+[BTC] 1440 candles
+[FILTER] ATR=41.50 (avg=52.19, threshold=41.75)
+[FILTER] Vol=0.8787 (avg=3.1903, threshold=0.3190)
+[BTC] Last streaks: [3, 1, 2, 3, 1]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=1231, last_dir=UP, p̂=0.606 (n=94)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.606, q=0.495, Δ=0.111 → Low ATR (41.50 < 41.75)
+
+✓ #3840 p̂=0.606, Signal=False
+⏰ Next: 20:38:31
+---
+=== Sat Jun 20 20:38:31 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3840/50
+
+============================================================
+Cycle #3841 | 20:38:31 UTC
+[BTC] 1440 candles
+[FILTER] ATR=41.61 (avg=52.20, threshold=41.76)
+[FILTER] Vol=0.9140 (avg=3.1921, threshold=0.3192)
+[BTC] Last streaks: [3, 1, 2, 3, 1]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=1231, last_dir=UP, p̂=0.606 (n=94)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.606, q=0.495, Δ=0.111 → Low ATR (41.61 < 41.76)
+
+✓ #3841 p̂=0.606, Signal=False
+⏰ Next: 20:39:55
+---
+=== Sat Jun 20 20:39:55 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3841/50
+
+============================================================
+Cycle #3842 | 20:39:55 UTC
+[BTC] 1440 candles
+[FILTER] ATR=41.84 (avg=52.21, threshold=41.77)
+[FILTER] Vol=1.3145 (avg=3.2121, threshold=0.3212)
+[BTC] Last streaks: [3, 1, 2, 3, 1]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=1231, last_dir=UP, p̂=0.606 (n=94)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.606, q=0.495, Δ=0.111 → OK
+
+✓ #3842 p̂=0.606, Signal=True
+⏰ Next: 20:41:18
+---
+=== Sat Jun 20 20:41:18 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3842/50
+
+============================================================
+Cycle #3843 | 20:41:18 UTC
+[BTC] 1440 candles
+[FILTER] ATR=38.60 (avg=51.31, threshold=41.05)
+[FILTER] Vol=0.3296 (avg=3.1045, threshold=0.3104)
+[BTC] Last streaks: [1, 2, 3, 1, 1]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=2311, last_dir=DOWN, p̂=0.447 (n=47)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.447, q=0.505, Δ=-0.058 → Low ATR (38.60 < 41.05)
+
+✓ #3843 p̂=0.447, Signal=False
+⏰ Next: 20:42:41
+---
+=== Sat Jun 20 20:42:41 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3843/50
+
+============================================================
+Cycle #3844 | 20:42:42 UTC
+[BTC] 1440 candles
+[FILTER] ATR=39.41 (avg=51.35, threshold=41.08)
+[FILTER] Vol=0.8654 (avg=3.1313, threshold=0.3131)
+[BTC] Last streaks: [1, 2, 3, 1, 2]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=2312, last_dir=UP, p̂=0.426 (n=47)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.426, q=0.495, Δ=-0.069 → Low ATR (39.41 < 41.08)
+
+✓ #3844 p̂=0.426, Signal=False
+⏰ Next: 20:44:05
+---
+=== Sat Jun 20 20:44:05 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3844/50
+
+============================================================
+Cycle #3845 | 20:44:05 UTC
+[BTC] 1440 candles
+[FILTER] ATR=39.54 (avg=51.36, threshold=41.09)
+[FILTER] Vol=1.4163 (avg=3.1588, threshold=0.3159)
+[BTC] Last streaks: [1, 2, 3, 1, 1]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=2311, last_dir=DOWN, p̂=0.447 (n=47)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.447, q=0.505, Δ=-0.058 → Low ATR (39.54 < 41.09)
+
+✓ #3845 p̂=0.447, Signal=False
+⏰ Next: 20:45:28
+---
+=== Sat Jun 20 20:45:28 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3845/50
+
+============================================================
+Cycle #3846 | 20:45:28 UTC
+[BTC] 1440 candles
+[FILTER] ATR=37.28 (avg=50.23, threshold=40.18)
+[FILTER] Vol=0.0967 (avg=3.0805, threshold=0.3080)
+[BTC] Last streaks: [2, 3, 1, 1, 2]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=3112, last_dir=DOWN, p̂=0.478 (n=23)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.478, q=0.505, Δ=-0.027 → Low ATR (37.28 < 40.18)
+
+✓ #3846 p̂=0.478, Signal=False
+⏰ Next: 20:46:52
+---
+=== Sat Jun 20 20:46:52 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3846/50
+
+============================================================
+Cycle #3847 | 20:46:52 UTC
+[BTC] 1440 candles
+[FILTER] ATR=39.49 (avg=50.34, threshold=40.27)
+[FILTER] Vol=2.5223 (avg=3.2018, threshold=0.3202)
+[BTC] Last streaks: [2, 3, 1, 1, 1]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=3111, last_dir=UP, p̂=0.458 (n=24)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.458, q=0.495, Δ=-0.037 → Low ATR (39.49 < 40.27)
+
+✓ #3847 p̂=0.458, Signal=False
+⏰ Next: 20:48:15
+---
+=== Sat Jun 20 20:48:15 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3847/50
+
+============================================================
+Cycle #3848 | 20:48:15 UTC
+[BTC] 1440 candles
+[FILTER] ATR=39.52 (avg=50.34, threshold=40.27)
+[FILTER] Vol=2.7054 (avg=3.2109, threshold=0.3211)
+[BTC] Last streaks: [2, 3, 1, 1, 1]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=3111, last_dir=UP, p̂=0.458 (n=24)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.458, q=0.495, Δ=-0.037 → Low ATR (39.52 < 40.27)
+
+✓ #3848 p̂=0.458, Signal=False
+⏰ Next: 20:49:38
+---
+=== Sat Jun 20 20:49:38 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3848/50
+
+============================================================
+Cycle #3849 | 20:49:39 UTC
+[BTC] 1440 candles
+[FILTER] ATR=39.52 (avg=50.34, threshold=40.27)
+[FILTER] Vol=3.0229 (avg=3.2268, threshold=0.3227)
+[BTC] Last streaks: [2, 3, 1, 1, 1]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=3111, last_dir=UP, p̂=0.458 (n=24)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.458, q=0.495, Δ=-0.037 → Low ATR (39.52 < 40.27)
+
+✓ #3849 p̂=0.458, Signal=False
+⏰ Next: 20:51:02
+---
+=== Sat Jun 20 20:51:02 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3849/50
+
+============================================================
+Cycle #3850 | 20:51:02 UTC
+[BTC] 1440 candles
+[FILTER] ATR=33.94 (avg=49.22, threshold=39.38)
+[FILTER] Vol=1.4184 (avg=3.2392, threshold=0.3239)
+[BTC] Last streaks: [3, 1, 1, 1, 1]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=1111, last_dir=DOWN, p̂=0.536 (n=97)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.536, q=0.505, Δ=0.031 → Low ATR (33.94 < 39.38)
+
+🌙 NIGHTLY REVIEW after 50 cycles
+[REVIEW] max p̂=0.622, avg=0.521, MIN_PROB=0.55
+
+✓ #3850 p̂=0.536, Signal=False
+⏰ Next: 20:52:26
+---
+=== Sat Jun 20 20:52:26 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3850/50
+
+============================================================
+Cycle #3851 | 20:52:26 UTC
+[BTC] 1440 candles
+[FILTER] ATR=35.11 (avg=49.28, threshold=39.43)
+[FILTER] Vol=1.8739 (avg=3.2620, threshold=0.3262)
+[BTC] Last streaks: [3, 1, 1, 1, 2]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=1112, last_dir=UP, p̂=0.500 (n=90)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.500, q=0.495, Δ=0.005 → Low ATR (35.11 < 39.43)
+
+✓ #3851 p̂=0.500, Signal=False
+⏰ Next: 20:53:49
+---
+=== Sat Jun 20 20:53:49 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3851/50
+
+============================================================
+Cycle #3852 | 20:53:49 UTC
+[BTC] 1440 candles
+[FILTER] ATR=36.75 (avg=49.36, threshold=39.49)
+[FILTER] Vol=2.7097 (avg=3.3038, threshold=0.3304)
+[BTC] Last streaks: [3, 1, 1, 1, 2]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=1112, last_dir=UP, p̂=0.500 (n=90)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.500, q=0.495, Δ=0.005 → Low ATR (36.75 < 39.49)
+
+✓ #3852 p̂=0.500, Signal=False
+⏰ Next: 20:55:13
+---
+=== Sat Jun 20 20:55:13 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3852/50
+
+============================================================
+Cycle #3853 | 20:55:13 UTC
+[BTC] 1440 candles
+[FILTER] ATR=34.93 (avg=48.44, threshold=38.75)
+[FILTER] Vol=0.0096 (avg=2.8381, threshold=0.2838)
+[BTC] Last streaks: [1, 1, 1, 2, 3]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=1123, last_dir=UP, p̂=0.620 (n=92)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.620, q=0.495, Δ=0.125 → Low ATR (34.93 < 38.75)
+
+✓ #3853 p̂=0.620, Signal=False
+⏰ Next: 20:56:36
+---
+=== Sat Jun 20 20:56:36 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3853/50
+
+============================================================
+Cycle #3854 | 20:56:36 UTC
+[BTC] 1440 candles
+[FILTER] ATR=34.94 (avg=48.44, threshold=38.75)
+[FILTER] Vol=0.0896 (avg=2.8421, threshold=0.2842)
+[BTC] Last streaks: [1, 1, 1, 2, 1]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=1121, last_dir=DOWN, p̂=0.489 (n=90)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.489, q=0.505, Δ=-0.016 → Low ATR (34.94 < 38.75)
+
+✓ #3854 p̂=0.489, Signal=False
+⏰ Next: 20:57:59
+---
+=== Sat Jun 20 20:57:59 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3854/50
+
+============================================================
+Cycle #3855 | 20:57:59 UTC
+[BTC] 1440 candles
+[FILTER] ATR=34.94 (avg=48.44, threshold=38.75)
+[FILTER] Vol=2.3660 (avg=2.9559, threshold=0.2956)
+[BTC] Last streaks: [1, 1, 1, 2, 1]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=1121, last_dir=DOWN, p̂=0.489 (n=90)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.489, q=0.505, Δ=-0.016 → Low ATR (34.94 < 38.75)
+
+✓ #3855 p̂=0.489, Signal=False
+⏰ Next: 20:59:23
+---
+=== Sat Jun 20 20:59:23 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3855/50
+
+============================================================
+Cycle #3856 | 20:59:23 UTC
+[BTC] 1440 candles
+[FILTER] ATR=35.71 (avg=48.48, threshold=38.78)
+[FILTER] Vol=2.9890 (avg=2.9871, threshold=0.2987)
+[BTC] Last streaks: [1, 1, 1, 2, 1]
+[MARKOV] Filtered=1424 candles, 62 states
+[MARKOV] State=1121, last_dir=DOWN, p̂=0.489 (n=90)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.489, q=0.505, Δ=-0.016 → Low ATR (35.71 < 38.78)
+
+✓ #3856 p̂=0.489, Signal=False
+⏰ Next: 21:00:46
+---
+=== Sat Jun 20 21:00:46 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3856/50
+
+============================================================
+Cycle #3857 | 21:00:46 UTC
+[BTC] 1440 candles
+[FILTER] ATR=36.09 (avg=47.71, threshold=38.17)
+[FILTER] Vol=0.3911 (avg=2.8178, threshold=0.2818)
+[BTC] Last streaks: [1, 1, 2, 3, 1]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=1231, last_dir=DOWN, p̂=0.611 (n=95)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.611, q=0.505, Δ=0.106 → Low ATR (36.09 < 38.17)
+
+✓ #3857 p̂=0.611, Signal=False
+⏰ Next: 21:02:10
+---
+=== Sat Jun 20 21:02:10 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3857/50
+
+============================================================
+Cycle #3858 | 21:02:10 UTC
+[BTC] 1440 candles
+[FILTER] ATR=37.21 (avg=47.77, threshold=38.21)
+[FILTER] Vol=1.3342 (avg=2.8650, threshold=0.2865)
+[BTC] Last streaks: [1, 1, 2, 3, 4]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=1234, last_dir=UP, p̂=0.481 (n=79)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.481, q=0.495, Δ=-0.014 → Low ATR (37.21 < 38.21)
+
+✓ #3858 p̂=0.481, Signal=False
+⏰ Next: 21:03:33
+---
+=== Sat Jun 20 21:03:33 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 3858/50
+
+============================================================
+Cycle #3859 | 21:03:33 UTC
+[BTC] 1440 candles
+[FILTER] ATR=37.99 (avg=47.81, threshold=38.24)
+[FILTER] Vol=3.8022 (avg=2.9884, threshold=0.2988)
+[BTC] Last streaks: [1, 1, 2, 3, 4]
+[MARKOV] Filtered=1423 candles, 62 states
+[MARKOV] State=1234, last_dir=UP, p̂=0.481 (n=79)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] UP, p̂=0.481, q=0.495, Δ=-0.014 → Low ATR (37.99 < 38.24)
+
+✓ #3859 p̂=0.481, Signal=False
+⏰ Next: 21:04:56
+---
