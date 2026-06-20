@@ -16,11 +16,10 @@
 - MBT working; MNQ/MGC missing polygon_api_key
 - PNL currently $0
 
-### HIP-4 Backtester V2 (PENDING)
-- User requested upgrade to monitor.py
-- Code was written but blocked by memory flush mode
-- Needs manual apply: insert HIP4BacktesterV2 class before `# ── CLI ───` line (~line 1628)
-- Stored in memory/2026-06-15.md
+### HIP-4 Backtester V2 ✅
+- Upgraded from V1 to V2 with real-data support
+- HIP4BacktesterV2 class added at line 1709 in monitor.py
+- Supports incremental updates and settled signal tracking
 
 ### Hyperliquid HIP4 Monitor
 - Location: ~/.openclaw/workspace/skills/hyperliquid_hip4_monitor/
