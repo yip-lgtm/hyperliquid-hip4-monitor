@@ -99595,3 +99595,22 @@ Cycle #5197 | 04:03:51 UTC
 ✓ #5197 p̂=0.750, Signal=True
 ⏰ Next: 04:05:15
 ---
+=== Mon Jun 22 04:05:15 UTC 2026 ===
+BTC 5m Bot v3 - ATR+Vol Filter
+MIN_PROB=0.55, ATR>0.8x avg, Vol>0.1x avg
+Cycle 5197/50
+
+============================================================
+Cycle #5198 | 04:05:15 UTC
+[BTC] 1440 candles
+[FILTER] ATR=163.52 (avg=140.78, threshold=112.63)
+[FILTER] Vol=0.1790 (avg=54.0263, threshold=5.4026)
+[BTC] Last streaks: [3, 4, 5, 1, 1]
+[MARKOV] Filtered=349 candles, 43 states
+[MARKOV] State=4511, last_dir=DOWN, p̂=0.250 (n=4)
+[POLY] YES=0.505, NO=0.495
+[SIGNAL] DOWN, p̂=0.250, q=0.505, Δ=-0.255 → Low Vol (0.1790 < 5.4026)
+
+✓ #5198 p̂=0.250, Signal=False
+⏰ Next: 04:06:38
+---
