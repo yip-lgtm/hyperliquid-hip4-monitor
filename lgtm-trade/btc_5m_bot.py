@@ -46,6 +46,8 @@ PAUSED_TODAY = False
 # Files
 STATE_FILE = "/home/node/.openclaw/workspace/btc_5m_state_v3.json"
 CONFIG_FILE = "/home/node/.openclaw/workspace/btc_5m_config_v3.json"
+SIGNALS_FILE = "/home/node/.openclaw/workspace/lgtm-trade/all_signals.json"
+TRACKER_FILE = "/home/node/.openclaw/workspace/lgtm-trade/trade_tracker.json"
 
 def get_current_window_ts():
     return (int(time.time()) // 300) * 300
@@ -366,6 +368,80 @@ def save_state():
     except:
         pass
 
+def load_signals():
+    """Load existing signals from file."""
+    try:
+        if os.path.exists(SIGNALS_FILE):
+            with open(SIGNALS_FILE) as f:
+                data = json.load(f)
+                if isinstance(data, list):
+                    return data
+    except:
+        pass
+    return []
+
+def save_signals(signals):
+    """Save signals list to file."""
+    try:
+        with open(SIGNALS_FILE, 'w') as f:
+            json.dump(signals, f, indent=2)
+    except:
+        pass
+
+def append_signal(signal_entry):
+    """Append a signal to all_signals.json immediately."""
+    signals = load_signals()
+    signals.append(signal_entry)
+    save_signals(signals)
+
+def load_tracker():
+    """Load trade tracker."""
+    try:
+        if os.path.exists(TRACKER_FILE):
+            with open(TRACKER_FILE) as f:
+                return json.load(f)
+    except:
+        pass
+    return {'trades': [], 'stats': {'total': 0, 'wins': 0, 'losses': 0, 'pending': 0, 'pnl': 0}}
+
+def save_tracker(tracker):
+    try:
+        with open(TRACKER_FILE, 'w') as f:
+            json.dump(tracker, f, indent=2)
+    except:
+        pass
+
+def update_tracker_on_result(signal_entry, won, pnl):
+    """Update trade_tracker.json when a signal resolves."""
+    tracker = load_tracker()
+    trade = {
+        'cycle': signal_entry.get('cycle'),
+        'direction': signal_entry.get('direction'),
+        'prob': signal_entry.get('prob'),
+        'edge': signal_entry.get('edge'),
+        'outcome': signal_entry.get('direction') if won else ('UP' if signal_entry.get('direction') == 'DOWN' else 'DOWN'),
+        'won': won,
+        'pnl': pnl,
+        'resolved': True
+    }
+    tracker['trades'].append(trade)
+    
+    # Recalculate stats
+    total = len(tracker['trades'])
+    wins = sum(1 for t in tracker['trades'] if t.get('won'))
+    losses = total - wins
+    pnl = sum(t.get('pnl', 0) for t in tracker['trades'])
+    tracker['stats'] = {
+        'total': total,
+        'wins': wins,
+        'losses': losses,
+        'pending': 0,
+        'pnl': round(pnl, 3),
+        'win_rate': round(wins/total*100, 1) if total > 0 else 0,
+        'updated': datetime.now(timezone.utc).isoformat()
+    }
+    save_tracker(tracker)
+
 def load_config():
     global MIN_PROB, MIN_EDGE
     try:
@@ -467,7 +543,7 @@ async def run_trading_cycle():
     
     print(f"[SIGNAL] {direction}, p̂={prob_continue:.3f}, q={q:.3f}, Δ={edge:.3f} → {reason}")
     
-    # 7. Telegram
+    # 7. Telegram + persistence
     msg = f"""📊 <b>BTC 5m Cycle #{CYCLE_COUNT}</b>
 
 🔹 State: <code>{state}</code> (n={state_n})
@@ -497,6 +573,34 @@ async def run_trading_cycle():
     
     await send_telegram(msg)
     
+    # 7b. Persist signal IMMEDIATELY to all_signals.json
+    signal_entry = {
+        'cycle': CYCLE_COUNT,
+        'state': state,
+        'direction': direction if signal_active else None,
+        'prob': round(prob_continue, 3),
+        'n': int(state_n),
+        'window': market['question'],
+        'edge': round(edge, 3),
+        'q': round(q, 3),
+        'yes_price': market['yes_price'],
+        'no_price': market['no_price'],
+        'window_ts': next_window,
+        'atr': round(current_atr, 2),
+        'vol': round(current_vol, 4),
+        'signal_active': signal_active,
+        'reason': reason,
+        'outcome': None,  # filled when resolved
+        'won': None,      # filled when resolved
+        'pnl': None,      # filled when resolved
+        'resolved': False,
+        'created_at': now.isoformat()
+    }
+    append_signal(signal_entry)
+    
+    # 7c. Try to resolve previous cycle's market
+    await resolve_market_results(next_window)
+    
     # 8. Log
     STATE_HISTORY.append({
         'time': now.isoformat(),
@@ -519,6 +623,58 @@ async def run_trading_cycle():
         await nightly_review()
     
     return {'cycle': CYCLE_COUNT, 'state': state, 'prob': prob_continue, 'signal': signal_active}
+
+async def resolve_market_results(current_window_ts):
+    """Check and resolve any unresolved signals whose markets have settled."""
+    signals = load_signals()
+    updated = False
+    
+    for s in signals:
+        if s.get('resolved'):
+            continue
+        sig_window = s.get('window_ts')
+        if sig_window is None:
+            continue
+        
+        # Market resolves 5 min after window close, give 10 min grace
+        if current_window_ts >= sig_window + 600:
+            # Fetch the market result via Polymarket API
+            slug = f"btc-updown-5m-{sig_window}"
+            try:
+                async with httpx.AsyncClient(timeout=15) as http:
+                    resp = await http.get(f"{GAMMA_API}/markets", params={"slug": slug})
+                    if resp.status_code == 200:
+                        data = resp.json()
+                        if data:
+                            m = data[0]
+                            resolved = m.get('closed', False)
+                            if resolved:
+                                # Determine outcome based on whether price > 0.5
+                                outcome_prices_str = m.get('outcomePrices', '[]')
+                                yes_p, _ = parse_outcome_prices(outcome_prices_str)
+                                actual_dir = 'UP' if yes_p > 0.5 else 'DOWN'
+                                
+                                sig_dir = s.get('direction')
+                                won = (sig_dir == actual_dir) if sig_dir else False
+                                
+                                # PnL: risk $2, win = edge * 2, lose = -$2
+                                edge_val = s.get('edge', 0)
+                                pnl = round(edge_val * 2, 2) if won else -2.0
+                                
+                                s['resolved'] = True
+                                s['outcome'] = actual_dir
+                                s['won'] = won
+                                s['pnl'] = pnl
+                                s['resolved_at'] = datetime.now(timezone.utc).isoformat()
+                                
+                                update_tracker_on_result(s, won, pnl)
+                                updated = True
+                                print(f"[RESOLVE] Cycle {s.get('cycle')}: {sig_dir} → {actual_dir}, won={won}, pnl={pnl}")
+            except Exception as e:
+                print(f"[RESOLVE] Error resolving cycle {s.get('cycle')}: {e}")
+    
+    if updated:
+        save_signals(signals)
 
 async def nightly_review():
     global MIN_PROB, STATE_HISTORY
